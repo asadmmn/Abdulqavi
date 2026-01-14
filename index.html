@@ -3,18 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Naseer Ahmed - SQA Engineer</title>
-  <meta name="description" content="Naseer Ahmed, SQA Engineer">
-  <meta property="og:title" content="SQA Engineer — Portfolio 2025">
-  <meta property="og:description" content="About, Resume & Projects, TechStack, skills, Socials">
+  <title>Abdul Qavi — Laravel Developer Portfolio</title>
+  <meta name="description" content="Abdul Qavi, Senior Laravel Developer specializing in backend development, APIs, and scalable web applications">
+  <meta property="og:title" content="Senior Laravel Developer — Portfolio">
+  <meta property="og:description" content="Full-stack Laravel developer with expertise in PHP, APIs, and modern web development">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF2D20',
+            'primary-dark': '#E91E11',
+            secondary: '#111827',
+            accent: '#0EA5E9'
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'gradient': 'gradient 8s ease infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            gradient: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+            }
+          }
+        }
+      }
+    }
+  </script>
   <style>
     :root{
-      --accent:#111827; 
+      --primary:#FF2D20;
+      --primary-dark:#E91E11;
+      --secondary:#111827;
+      --accent:#0EA5E9;
       --ink:#0B0B0C;
       --muted:#6B7280; 
       --ring:rgba(17,24,39,.16);
@@ -22,11 +53,22 @@
     html{scroll-behavior:smooth}
     body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink)}
     .heading{font-family:Poppins,Inter,system-ui,Arial,sans-serif}
-    .glass{backdrop-filter:saturate(140%) blur(10px);background:rgba(255,255,255,.6)}
-    .card{transition:transform .25s ease, box-shadow .25s ease}
-    .card:hover{transform:translateY(-4px)}
-    .reveal{opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease}
+    .glass{backdrop-filter:saturate(140%) blur(10px);background:rgba(255,255,255,.8)}
+    .card{transition:transform .3s ease, box-shadow .3s ease}
+    .card:hover{transform:translateY(-8px); box-shadow:0 20px 40px rgba(0,0,0,.1)}
+    .reveal{opacity:0; transform:translateY(20px); transition:opacity .8s ease, transform .8s ease}
     .reveal.visible{opacity:1; transform:none}
+    .gradient-bg{
+      background: linear-gradient(-45deg, #FF2D20, #0EA5E9, #111827);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+    .gradient-text{
+      background: linear-gradient(90deg, #FF2D20, #0EA5E9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
   </style>
 </head>
 <body class="bg-white text-slate-900">
@@ -35,22 +77,21 @@
     <div class="glass border-b border-slate-200/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#home" class="flex items-center gap-2">
-  <img 
-    src="assets/images/logo.jpeg"
-    alt="SQA 2025"
-    class="h-9 w-9 rounded-full border border-slate-200"
-  />
-  <span class="heading text-lg font-semibold tracking-tight">SQA</span>
-</a>
+          <div class="h-9 w-9 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+            <span class="text-white font-bold text-lg">AQ</span>
+          </div>
+          <span class="heading text-lg font-semibold tracking-tight">Abdul Qavi</span>
+        </a>
 
         <nav class="hidden md:flex gap-6 text-sm">
-          <a class="hover:text-black/80" href="#about">About</a>
-          <a class="hover:text-black/80" href="#experience">Experience</a>
-          <a class="hover:text-black/80" href="#skills">Skills</a>
-          <a class="hover:text-black/80" href="#services">Services</a>
-          <a class="hover:text-black/80" href="#contact">Contact</a>
+          <a class="hover:text-primary transition-colors" href="#about">About</a>
+          <a class="hover:text-primary transition-colors" href="#experience">Experience</a>
+          <a class="hover:text-primary transition-colors" href="#projects">Projects</a>
+          <a class="hover:text-primary transition-colors" href="#skills">Skills</a>
+          <a class="hover:text-primary transition-colors" href="#services">Services</a>
+          <a class="hover:text-primary transition-colors" href="#contact">Contact</a>
         </nav>
-        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-xl border border-slate-200 shadow-sm" aria-label="Open menu">
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-xl border border-slate-200 shadow-sm hover:border-primary" aria-label="Open menu">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="1.5" d="M4 7h16M4 12h16M4 17h16"></path></svg>
         </button>
       </div>
@@ -58,288 +99,502 @@
 
     <div id="mobileNav" class="hidden md:hidden bg-white/95 backdrop-blur border-b border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 grid gap-3 text-sm">
-        <a class="py-2" href="#about">About</a>
-        <a class="py-2" href="#experience">Experience</a>
-        <a class="py-2" href="#skills">Skills</a>
-        <a class="py-2" href="#services">Services</a>
-        <a class="py-2" href="#contact">Contact</a>
+        <a class="py-2 hover:text-primary transition-colors" href="#about">About</a>
+        <a class="py-2 hover:text-primary transition-colors" href="#experience">Experience</a>
+        <a class="py-2 hover:text-primary transition-colors" href="#projects">Projects</a>
+        <a class="py-2 hover:text-primary transition-colors" href="#skills">Skills</a>
+        <a class="py-2 hover:text-primary transition-colors" href="#services">Services</a>
+        <a class="py-2 hover:text-primary transition-colors" href="#contact">Contact</a>
       </div>
     </div>
   </header>
 
-  <!-- Main -->  
-  <section id="home" class="pt-36 pb-14">
+  <!-- Hero Section -->  
+  <section id="home" class="pt-36 pb-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-center">
       
-      
-	  <div class="lg:col-span-6 reveal visible">
-    <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
-      <img src="assets/images/profile.png" alt="Naseer Ahmed" class="w-full h-full object-cover">
-    </div>
-  </div>
-	  
-      <div class="lg:col-span-6 reveal">
-        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-slate-500">
-          <span class="inline-block w-2 h-2 rounded-full bg-slate-900"></span>
-          Available for opportunities
+      <div class="lg:col-span-7 reveal">
+        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-slate-500 mb-4">
+          <span class="inline-block w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          Senior Laravel Developer
         </div>
-        <h1 class="heading mt-4 text-4xl sm:text-5xl font-bold leading-tight">Naseer Ahmed - SQA Engineer</h1>
-        <p class="mt-4 text-slate-600 max-w-xl">Specialized in Manual & Automated Testing | API Testing | Performance Testing | Database Testing</p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#experience" class="px-5 py-3 rounded-2xl bg-slate-900 text-white text-sm font-medium shadow">View Experience</a>
-          <a href="#contact" class="px-5 py-3 rounded-2xl border border-slate-300 text-sm font-medium">Get in Touch</a>
+        <h1 class="heading mt-2 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+          Building Scalable
+          <span class="gradient-text">Web Solutions</span>
+          with Laravel
+        </h1>
+        <p class="mt-6 text-slate-600 max-w-2xl text-lg">
+          I specialize in creating robust backend systems, RESTful APIs, and full-stack applications using Laravel, Vue.js, and modern PHP frameworks. With 5+ years of experience, I transform complex requirements into elegant, maintainable code.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="#projects" class="px-6 py-3 rounded-xl bg-primary text-white font-medium shadow-lg hover:bg-primary-dark hover:shadow-xl transition-all">
+            View My Work
+          </a>
+          <a href="#contact" class="px-6 py-3 rounded-xl border border-slate-300 font-medium hover:border-primary hover:text-primary transition-all">
+            Let's Collaborate
+          </a>
+        </div>
+        <div class="mt-10 flex flex-wrap gap-6">
+          <div class="flex items-center gap-3">
+            <div class="w-2 h-2 rounded-full bg-green-500"></div>
+            <span class="text-sm text-slate-600">Available for projects</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+            <span class="text-sm text-slate-600">Remote & On-site</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="lg:col-span-5 reveal">
+        <div class="relative">
+          <div class="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-xl"></div>
+          <div class="relative aspect-square rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
+            <!-- Placeholder for profile image - Replace with actual image -->
+           <video
+  class="w-full h-full object-cover"
+  src="assets/videos/profile.mp4"
+  autoplay
+  muted
+  loop
+  playsinline
+></video>
+
+          </div>
+          <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-white rounded-2xl border border-slate-200 p-4 shadow-lg">
+            <div class="text-center">
+              <div class="text-2xl">4+</div>
+              <div class="text-xs text-slate-600">Years Experience</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="py-16 border-t border-slate-200">
+  <section id="about" class="py-20 bg-gradient-to-b from-white to-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-      <h2 class="heading text-3xl sm:text-4xl font-bold">About</h2>
-      <p class="text-slate-600 mt-3">
-	  I'm a Software Quality Assurance Engineer at Macrosoft inc, working for their US-based client Advertising Specialty Institute (ASI). My goal is to work in challenging positions that foster long-term career development while delivering exceptional quality assurance. I'm expert at:
-      </p>
-      <ul class="mt-6 grid sm:grid-cols-2 gap-4 text-sm">
-        <li class="flex items-center gap-2">
-          <span class="inline-block w-2 h-2 rounded-full bg-slate-900"></span> Manual & Automated Testing
-        </li>
-        <li class="flex items-center gap-2">
-          <span class="inline-block w-2 h-2 rounded-full bg-slate-900"></span> Performance Testing (JMeter)
-        </li>
-        <li class="flex items-center gap-2">
-          <span class="inline-block w-2 h-2 rounded-full bg-slate-900"></span> API Testing (Postman)
-        </li>
-        <li class="flex items-center gap-2">
-          <span class="inline-block w-2 h-2 rounded-full bg-slate-900"></span> Database Testing (SQL Server, MySQL)
-        </li>
-        <li class="flex items-center gap-2">
-          <span class="inline-block w-2 h-2 rounded-full bg-slate-900"></span> Test Automation (Selenium, TestNG)
-        </li>
-        <li class="flex items-center gap-2">
-          <span class="inline-block w-2 h-2 rounded-full bg-slate-900"></span> Agile/Scrum Methodologies
-        </li>
-      </ul>
-
-      <div class="mt-8 flex gap-3">
-        <a href="#contact" class="px-5 py-3 rounded-2xl bg-slate-900 text-white text-sm font-medium shadow">Let's Connect</a>
-<a href="assets/cv/Naseer_Ahmed_SQA_CV.pdf"
-   download
-   target="_blank"
-   class="px-5 py-3 rounded-2xl border border-slate-300 text-sm font-medium inline-flex items-center gap-2 hover:bg-slate-50">
- 
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 12v8m0 0l-4-4m4 4l4-4M12 4v8"></path>
-          </svg>
-          Download CV
-        </a>
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="heading text-3xl sm:text-4xl font-bold mb-6">
+            About <span class="gradient-text">Me</span>
+          </h2>
+          <p class="text-slate-600 mb-6">
+            I'm a passionate Laravel developer with over 4 years of experience building scalable web applications and APIs. My expertise lies in creating efficient backend systems, integrating third-party services, and optimizing application performance.
+          </p>
+          <p class="text-slate-600 mb-8">
+            I thrive on solving complex problems and enjoy working on challenging projects that push the boundaries of what's possible with Laravel and modern web technologies.
+          </p>
+          
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200">
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <span class="text-primary font-bold">50+</span>
+              </div>
+              <div>
+                <div class="font-semibold">Projects</div>
+                <div class="text-sm text-slate-500">Completed</div>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200">
+              <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                <span class="text-accent font-bold">4+</span>
+              </div>
+              <div>
+                <div class="font-semibold">Years</div>
+                <div class="text-sm text-slate-500">Experience</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="space-y-6">
+          <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="font-semibold text-lg mb-3">My Philosophy</h3>
+            <p class="text-slate-600">
+              I believe in writing clean, maintainable code that not only works today but remains flexible for tomorrow's requirements. Quality, performance, and user experience are at the core of everything I build.
+            </p>
+          </div>
+          
+          <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="font-semibold text-lg mb-3">Current Focus</h3>
+            <p class="text-slate-600">
+              Currently specializing in Laravel ecosystem including Livewire, Inertia.js, and API development with Sanctum. Exploring microservices architecture and real-time applications with Laravel Echo and WebSockets.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Experience -->
-  <section id="experience" class="py-16 border-t border-slate-200">
+  <section id="experience" class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="reveal">
-        <h2 class="heading text-3xl sm:text-4xl font-bold">Professional Experience</h2>
-        <p class="text-slate-600 mt-1">4+ years of QA experience helping teams deliver stable, high-quality enterprise and web applications through deep functional, regression, and UAT testing and many more.</p>
+      <div class="reveal text-center mb-12">
+        <h2 class="heading text-3xl sm:text-4xl font-bold mb-4">
+          Work <span class="gradient-text">Experience</span>
+        </h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">
+          4+ years of professional experience in full-stack web development
+        </p>
       </div>
-      <div class="mt-8 grid md:grid-cols-3 gap-6">
+      
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-4 lg:left-1/2 transform lg:-translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-primary to-accent"></div>
         
-        <div class="card group rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <div class="text-xs uppercase tracking-widest text-slate-500">Current Position</div>
-          <h3 class="heading text-xl font-semibold mt-2">Software Quality Assurance Engineer</h3>
-          <p class="text-sm font-medium text-slate-700 mt-1">Macrosoft Pakistan SMC Pvt. Ltd</p>
-          <p class="text-slate-600 mt-2">Working with US-based client ASI (Advertising Specialty Institute). Designing and executing comprehensive test plans, implementing automated testing frameworks, and conducting functional, regression, performance, and UAT testing. Significantly reduced bug leakage through proactive testing cycles.</p>
-          <div class="mt-3 text-sm text-slate-500">April 2023 – Present</div>
-        </div>
-
-        <div class="card group rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <div class="text-xs uppercase tracking-widest text-slate-500">Previous Role</div>
-          <h3 class="heading text-xl font-semibold mt-2">Software Quality Assurance Engineer</h3>
-          <p class="text-sm font-medium text-slate-700 mt-1">CrecenTech Systems Private Ltd</p>
-          <p class="text-slate-600 mt-2">Worked in Agile environment performing sprint-based test case creation and execution. Conducted QA and testing of CRM (Salesforce), Desktop, and Web applications. Performed API, Performance, and Database testing while providing production support.</p>
-          <div class="mt-3 text-sm text-slate-500">July 2022 – March 2023</div>
-        </div>
-
-        <div class="card group rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <div class="text-xs uppercase tracking-widest text-slate-500">First Role</div>
-          <h3 class="heading text-xl font-semibold mt-2">Associate SQA Engineer</h3>
-          <p class="text-sm font-medium text-slate-700 mt-1">Autosoft Dynamics Private Ltd</p>
-          <p class="text-slate-600 mt-2">Worked in FinTech environment with ADC Team. Performed manual testing of "AutoBanker-II" web application for banking clients. Conducted Database Testing on MS SQL Server and API testing, while providing client training and support.</p>
-          <div class="mt-3 text-sm text-slate-500">December 2021 – July 2022</div>
+        <div class="space-y-12">
+          <!-- Current Role -->
+          <div class="relative pl-12 lg:pl-0 lg:grid lg:grid-cols-2 gap-8 items-center reveal">
+            <div class="lg:text-right lg:pr-12 mb-6 lg:mb-0">
+              <div class="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-white -ml-2"></div>
+              <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-semibold mb-2">
+                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                Current Position
+              </div>
+              <h3 class="heading text-xl font-semibold">Full-stack Developer</h3>
+              <p class="text-primary font-medium">Design Zeron</p>
+              <p class="text-slate-500 text-sm mt-1">Oct 2023 – Present</p>
+              <p class="text-slate-500 text-sm">Karachi Division, Pakistan</p>
+            </div>
+            
+            <div class="lg:pl-12">
+              <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <ul class="space-y-3">
+                  <li class="flex items-start gap-3">
+                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
+                    <span>Leading development of full-stack web applications using Laravel, Vue.js, and React</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
+                    <span>Collaborating with designers to implement new features and maintain existing platforms</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
+                    <span>Improving speed, security, and user experience across systems</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
+                    <span>Managing version control and deployment processes through Git and server tools</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Previous Role -->
+          <div class="relative pl-12 lg:pl-0 lg:grid lg:grid-cols-2 gap-8 items-center reveal">
+            <div class="lg:text-right lg:pr-12 mb-6 lg:mb-0 order-2 lg:order-1">
+              <div class="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-white -ml-2"></div>
+              <div class="lg:hidden inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-semibold mb-2">
+                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                Previous Role
+              </div>
+              <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <ul class="space-y-3">
+                  <li class="flex items-start gap-3">
+                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
+                    <span>Built and maintained dynamic websites using PHP, Laravel, and JavaScript</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
+                    <span>Worked closely with clients to deliver features and fix issues efficiently</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
+                    <span>Developed front-end interfaces using Bootstrap and Vue.js</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
+                    <span>Improved performance and maintainability through clean, modular development</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="lg:pl-12 order-1 lg:order-2">
+              <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-semibold mb-2">
+                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                Previous Role
+              </div>
+              <h3 class="heading text-xl font-semibold">Web Developer</h3>
+              <p class="text-primary font-medium">ITB Solutions</p>
+              <p class="text-slate-500 text-sm mt-1">Dec 2022 – Oct 2023</p>
+              <p class="text-slate-500 text-sm">Karachi, Pakistan</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   
-  <!-- Projects / Case Studies -->
-<section id="projects" class="py-16 border-t border-slate-200">
+  
+   
+  
+<!-- Projects -->
+<section id="projects" class="py-20 bg-gradient-to-b from-white to-slate-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <div class="reveal mb-10">
-      <h2 class="heading text-3xl sm:text-4xl font-bold">Projects & Case Studies</h2>
-      <p class="text-slate-600 mt-1">
-        Enterprise, B2B, AdTech, and Mobile applications tested across multiple domains.
+
+    <div class="reveal text-center mb-12">
+      <h2 class="heading text-3xl sm:text-4xl font-bold mb-4">
+        Featured <span class="gradient-text">Projects</span>
+      </h2>
+      <p class="text-slate-600 max-w-2xl mx-auto">
+        Real-world projects built with Laravel, Vue.js, APIs, and modern web technologies.
       </p>
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-<!-- Project 1 -->
-      <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-        <div class="flex items-center gap-3 mb-4">
-          <img src="https://espplus.com/assets/images/esp_logo_colored.svg" class="w-10 h-10 rounded" alt="ESP+ Logo">
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-500">Enterprise Platform</div>
-            <h3 class="heading text-xl font-semibold">ESP+ Application</h3>
+
+      <!-- Project 1 -->
+      <div class="card rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm reveal">
+        <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+   
+            <img src="assets/images/60shades.webp" alt="60shades Project">
+   	   </div>
+	   
+        <div class="p-6">
+          <div class="text-xs uppercase tracking-widest text-primary font-semibold mb-2">
+            Marketplace Platform
+          </div>
+          <h3 class="heading text-xl font-semibold mb-3">60shades</h3>
+          <p class="text-slate-600 text-sm mb-4">
+            A large-scale marketplace where bakeries and suppliers sell cake tools, equipment, and supplies with secure payments.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">Laravel</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">Vue.js</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">MySQL</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">Payment Gateway</span>
           </div>
         </div>
-        <p class="text-slate-600 mt-2">Worked as an SQA Engineer on ESP+, a core enterprise platform for managing suppliers, products, and promotional workflows. Ensured stable releases through extensive functional, regression, and UAT testing.</p>
       </div>
 
       <!-- Project 2 -->
-      <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-        <div class="flex items-center gap-3 mb-4">
-          <img src="https://asicentral.com/wp-content/themes/asitheme/images/logo.svg" class="w-10 h-10 rounded" alt="ASICentral Logo">
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-500">B2B E-commerce</div>
-            <h3 class="heading text-xl font-semibold">ASICentral.com</h3>
+      <div class="card rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm reveal">
+        <div class="h-48 bg-gradient-to-r from-accent to-secondary flex items-center justify-center">
+          <img src="assets/images/mash3D.webp" alt="mash3D Project">
+        </div>
+        <div class="p-6">
+          <div class="text-xs uppercase tracking-widest text-accent font-semibold mb-2">
+            E-commerce Website
+          </div>
+          <h3 class="heading text-xl font-semibold mb-3">Mech 3D Studios</h3>
+          <p class="text-slate-600 text-sm mb-4">
+            A modern e-commerce platform designed to sell creative 3D products with smooth checkout and admin control.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">Laravel</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">Vue.js</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">MySQL</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">E-commerce</span>
           </div>
         </div>
-        <p class="text-slate-600 mt-2">Performed QA on a B2B e-commerce platform for promotional products. Validated product listings, filters, pricing accuracy, and backend data consistency.</p>
       </div>
 
       <!-- Project 3 -->
-      <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-        <div class="flex items-center gap-3 mb-4">
-          <img src="https://cdn-icons-png.flaticon.com/512/3063/3063828.png" class="w-10 h-10 rounded" alt="Print & Promo">
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-500">Marketing Platform</div>
-            <h3 class="heading text-xl font-semibold">Print & Promo Marketing</h3>
+      <div class="card rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm reveal">
+        <div class="h-48 bg-gradient-to-r from-secondary to-primary flex items-center justify-center">
+          <img src="assets/images/aldercake.webp" alt="aldercake Project">
+        </div>
+        <div class="p-6">
+          <div class="text-xs uppercase tracking-widest text-secondary font-semibold mb-2">
+            Online Store
+          </div>
+          <h3 class="heading text-xl font-semibold mb-3">Alder Cake Tool</h3>
+          <p class="text-slate-600 text-sm mb-4">
+            An online store for cake tools and accessories with responsive UI and easy product management.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">Laravel</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">Vue.js</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">Bootstrap</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">MySQL</span>
           </div>
         </div>
-        <p class="text-slate-600 mt-2">Tested end-to-end promotional workflows including campaign setup, product visibility, and reporting modules to ensure data accuracy before production releases.</p>
       </div>
 
       <!-- Project 4 -->
-      <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-        <div class="flex items-center gap-3 mb-4">
-          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828464.png" class="w-10 h-10 rounded" alt="StaffViz">
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-500">Workforce Management</div>
-            <h3 class="heading text-xl font-semibold">StaffViz Application</h3>
+      <div class="card rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm reveal">
+        <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+         <img src="assets/images/plantodubai.webp" alt="plantodubai Project">
+        </div>
+        <div class="p-6">
+          <div class="text-xs uppercase tracking-widest text-primary font-semibold mb-2">
+            Tourism Platform
+          </div>
+          <h3 class="heading text-xl font-semibold mb-3">Plan to Dubai</h3>
+          <p class="text-slate-600 text-sm mb-4">
+            Tourism data management platform with admin panel and APIs for seamless travel website integrations.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">Laravel</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">API Development</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">Admin Panel</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">MySQL</span>
           </div>
         </div>
-        <p class="text-slate-600 mt-2">Tested internal workforce management system focusing on role-based access, functional workflows, and data integrity across modules.</p>
       </div>
 
       <!-- Project 5 -->
-      <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-        <div class="flex items-center gap-3 mb-4">
-          <img src="https://cdn-icons-png.flaticon.com/512/1256/1256650.png" class="w-10 h-10 rounded" alt="Ad Management">
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-500">AdTech Platform</div>
-            <h3 class="heading text-xl font-semibold">Ad Management Application</h3>
+      <div class="card rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm reveal">
+        <div class="h-48 bg-gradient-to-r from-accent to-primary flex items-center justify-center">
+          <span class="text-white text-4xl">🏢</span>
+        </div>
+        <div class="p-6">
+          <div class="text-xs uppercase tracking-widest text-accent font-semibold mb-2">
+            Agency Website
+          </div>
+          <h3 class="heading text-xl font-semibold mb-3">Code Zeroes</h3>
+          <p class="text-slate-600 text-sm mb-4">
+            A professional WordPress website for a software agency showcasing services, portfolio, and performance-focused design.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">WordPress</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">PHP</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">JavaScript</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">CSS</span>
           </div>
         </div>
-        <p class="text-slate-600 mt-2">Validated complex business rules related to proposals, pricing, tiers, budgets, and rate cards. Ensured accurate calculations through functional, UAT, and API testing.</p>
       </div>
 
       <!-- Project 6 -->
-      <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-        <div class="flex items-center gap-3 mb-4">
-          <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" class="w-10 h-10 rounded" alt="Rider App">
-          <div>
-            <div class="text-xs uppercase tracking-widest text-slate-500">Mobile Application</div>
-            <h3 class="heading text-xl font-semibold">Rider Mobile App</h3>
+      <div class="card rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm reveal">
+        <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center">
+          <span class="text-white text-4xl">🚚</span>
+        </div>
+        <div class="p-6">
+          <div class="text-xs uppercase tracking-widest text-secondary font-semibold mb-2">
+            Booking Platform
+          </div>
+          <h3 class="heading text-xl font-semibold mb-3">Alweam Transport</h3>
+          <p class="text-slate-600 text-sm mb-4">
+            Vehicle booking system with secure payments, flexible scheduling, and smooth user experience.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">Laravel</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">Vue.js</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">Payment Gateway</span>
+            <span class="px-3 py-1 text-xs bg-slate-100 rounded-full">Booking System</span>
           </div>
         </div>
-        <p class="text-slate-600 mt-2">Performed QA on a Rider mobile application focusing on login, task assignment, status updates, and error handling to ensure stability and usability.</p>
-      </div>  </div>
-</section>
-
-  
-  <!-- Skills Section -->
-  <section id="skills" class="py-16 border-t border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="reveal">
-        <h2 class="heading text-3xl sm:text-4xl font-bold">Technical Skills & Tools</h2>
-        <p class="text-slate-600 mt-1">Comprehensive skill set covering testing methodologies, automation, and quality assurance tools.</p>
       </div>
 
-      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Testing Skills -->
-        <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <h3 class="heading text-lg font-semibold">Testing Expertise</h3>
-          <ul class="mt-4 space-y-2 text-sm text-slate-600">
-            <li>• Database Testing</li>
-            <li>• Performance Testing</li>
-            <li>• API Testing</li>
-            <li>• Test Automation (Selenium + TestNG)</li>
-            <li>• Sanity & Regression Testing</li>
-            <li>• Smoke & Integration Testing</li>
-            <li>• Exploratory Testing</li>
-          </ul>
-        </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Programming & Scripting -->
-        <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <h3 class="heading text-lg font-semibold">Programming Languages</h3>
-          <ul class="mt-4 space-y-2 text-sm text-slate-600">
-            <li>• Java</li>
-            <li>• Python</li>
-            <li>• C#</li>
-            <li>• SQL Scripting</li>
-          </ul>
+  <!-- Skills -->
+  <section id="skills" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal text-center mb-12">
+        <h2 class="heading text-3xl sm:text-4xl font-bold mb-4">
+          Technical <span class="gradient-text">Expertise</span>
+        </h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">
+          Comprehensive skill set covering Laravel ecosystem, modern PHP development, and full-stack web technologies.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Core Technologies -->
+        <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+            <span class="text-primary text-xl">⚙️</span>
+          </div>
+          <h3 class="heading text-lg font-semibold mb-4">Core Technologies</h3>
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>Laravel</span>
+                <span class="text-primary font-semibold">95%</span>
+              </div>
+              <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                <div class="h-full bg-primary rounded-full" style="width: 95%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>PHP 8+</span>
+                <span class="text-primary font-semibold">98%</span>
+              </div>
+              <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                <div class="h-full bg-primary rounded-full" style="width: 98%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>MySQL/PostgreSQL</span>
+                <span class="text-primary font-semibold">90%</span>
+              </div>
+              <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                <div class="h-full bg-primary rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>REST API</span>
+                <span class="text-primary font-semibold">92%</span>
+              </div>
+              <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                <div class="h-full bg-primary rounded-full" style="width: 92%"></div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <!-- Tools -->
-        <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <h3 class="heading text-lg font-semibold">Tools & Platforms</h3>
-          <ul class="mt-4 space-y-2 text-sm text-slate-600">
-            <li>• SQL Server | MySQL</li>
-            <li>• Apache JMeter</li>
-            <li>• Postman</li>
-            <li>• IntelliJ IDEA | Eclipse</li>
-            <li>• JIRA | Azure DevOps</li>
-            <li>• Reflect | Spira Teams</li>
-            <li>• MS Office | Office 365</li>
-          </ul>
+        
+        <!-- Frontend & Tools -->
+        <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal">
+          <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+            <span class="text-accent text-xl">🎨</span>
+          </div>
+          <h3 class="heading text-lg font-semibold mb-4">Frontend & Tools</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">Vue.js 3</span>
+            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">Inertia.js</span>
+            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">Livewire</span>
+            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">Tailwind CSS</span>
+            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">Alpine.js</span>
+            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">Git</span>
+            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">Docker</span>
+            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">AWS</span>
+          </div>
         </div>
-
-        <!-- Certifications -->
-        <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <h3 class="heading text-lg font-semibold">Certifications</h3>
-          <ul class="mt-4 space-y-2 text-sm text-slate-600">
-            <li>• Java Programming (TAU)</li>
-            <li>• Selenium WebDriver & TestNG (TAU)</li>
-            <li>• Web Element Locator Strategies (TAU)</li>
-            <li>• Test Automation Foundation (TAU)</li>
-            <li>• QA Fundamentals (10Pearls)</li>
-            <li>• Test Case Management (10Pearls)</li>
-          </ul>
-        </div>
-
-        <!-- Personal Skills -->
-        <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <h3 class="heading text-lg font-semibold">Professional Skills</h3>
-          <ul class="mt-4 space-y-2 text-sm text-slate-600">
-            <li>• Analytical Thinking</li>
-            <li>• Team Management</li>
-            <li>• Decision Making</li>
-            <li>• Communication Skills</li>
-            <li>• Problem Solving</li>
-          </ul>
-        </div>
-
-        <!-- Languages -->
-        <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <h3 class="heading text-lg font-semibold">Languages</h3>
-          <ul class="mt-4 space-y-2 text-sm text-slate-600">
-            <li>• English (Fluent)</li>
-            <li>• Urdu (Native)</li>
-            <li>• Sindhi (Native)</li>
+        
+        <!-- Laravel Ecosystem -->
+        <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal">
+          <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4">
+            <span class="text-secondary text-xl">🔥</span>
+          </div>
+          <h3 class="heading text-lg font-semibold mb-4">Laravel Ecosystem</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3">
+              <div class="w-2 h-2 rounded-full bg-primary"></div>
+              <span>Laravel Sanctum & Passport</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <div class="w-2 h-2 rounded-full bg-primary"></div>
+              <span>Laravel Horizon & Queues</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <div class="w-2 h-2 rounded-full bg-primary"></div>
+              <span>Laravel Echo & Broadcasting</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <div class="w-2 h-2 rounded-full bg-primary"></div>
+              <span>Laravel Dusk & Testing</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <div class="w-2 h-2 rounded-full bg-primary"></div>
+              <span>Laravel Socialite</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <div class="w-2 h-2 rounded-full bg-primary"></div>
+              <span>Laravel Cashier & Billing</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -347,107 +602,202 @@
   </section>
 
   <!-- Services -->
-  <section id="services" class="py-16 border-t border-slate-200">
+  <section id="services" class="py-20 bg-gradient-to-b from-white to-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="reveal">
-        <h2 class="heading text-3xl sm:text-4xl font-bold">Services</h2>
-        <p class="text-slate-600 mt-1">Professional QA services with a focus on quality, reliability, and comprehensive testing.</p>
+      <div class="reveal text-center mb-12">
+        <h2 class="heading text-3xl sm:text-4xl font-bold mb-4">
+          My <span class="gradient-text">Services</span>
+        </h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">
+          Comprehensive Laravel development services tailored to meet your business needs.
+        </p>
       </div>
-      <div class="mt-8 grid md:grid-cols-3 gap-6">
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+            <span class="text-primary text-2xl">🚀</span>
+          </div>
+          <h3 class="heading text-xl font-semibold mb-3">Custom Laravel Development</h3>
+          <p class="text-slate-600">
+            Tailored Laravel solutions built from scratch to meet your specific business requirements with clean, maintainable code.
+          </p>
+        </div>
         
-        <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <div class="text-xs uppercase tracking-widest text-slate-500">01</div>
-          <h3 class="heading text-xl font-semibold mt-2">Manual & Automated Testing</h3>
-          <p class="text-slate-600 mt-2">Comprehensive test planning, execution, and automation using Selenium WebDriver with TestNG framework for efficient test coverage.</p>
+        <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal">
+          <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+            <span class="text-accent text-2xl">🔌</span>
+          </div>
+          <h3 class="heading text-xl font-semibold mb-3">API Development</h3>
+          <p class="text-slate-600">
+            Robust RESTful APIs with proper documentation, authentication, rate limiting, and third-party service integration.
+          </p>
         </div>
-
-        <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <div class="text-xs uppercase tracking-widest text-slate-500">02</div>
-          <h3 class="heading text-xl font-semibold mt-2">Performance & Load Testing</h3>
-          <p class="text-slate-600 mt-2">Utilizing Apache JMeter to assess application performance, identify bottlenecks, and ensure system reliability under various load conditions.</p>
+        
+        <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal">
+          <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4">
+            <span class="text-secondary text-2xl">🔄</span>
+          </div>
+          <h3 class="heading text-xl font-semibold mb-3">Legacy Code Migration</h3>
+          <p class="text-slate-600">
+            Modernize and migrate legacy PHP applications to Laravel framework with improved performance and maintainability.
+          </p>
         </div>
-
-        <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <div class="text-xs uppercase tracking-widest text-slate-500">03</div>
-          <h3 class="heading text-xl font-semibold mt-2">API & Database Testing</h3>
-          <p class="text-slate-600 mt-2">Expert API testing using Postman and comprehensive database validation on SQL Server and MySQL platforms.</p>
+        
+        <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+            <span class="text-primary text-2xl">📈</span>
+          </div>
+          <h3 class="heading text-xl font-semibold mb-3">Performance Optimization</h3>
+          <p class="text-slate-600">
+            Identify and resolve performance bottlenecks, implement caching strategies, and optimize database queries.
+          </p>
         </div>
-
-        <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <div class="text-xs uppercase tracking-widest text-slate-500">04</div>
-          <h3 class="heading text-xl font-semibold mt-2">Test Documentation & Reporting</h3>
-          <p class="text-slate-600 mt-2">Detailed bug reporting and tracking using JIRA and Azure DevOps, with comprehensive test case documentation.</p>
+        
+        <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal">
+          <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+            <span class="text-accent text-2xl">🛡️</span>
+          </div>
+          <h3 class="heading text-xl font-semibold mb-3">Security Audits</h3>
+          <p class="text-slate-600">
+            Comprehensive security assessment and implementation of best practices to protect your Laravel application.
+          </p>
         </div>
-
-        <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <div class="text-xs uppercase tracking-widest text-slate-500">05</div>
-          <h3 class="heading text-xl font-semibold mt-2">Agile QA Integration</h3>
-          <p class="text-slate-600 mt-2">Sprint-based testing, daily scrum participation, and seamless integration within Agile development workflows.</p>
-        </div>
-
-        <div class="card rounded-3xl border border-slate-200 p-6 shadow-sm reveal">
-          <div class="text-xs uppercase tracking-widest text-slate-500">06</div>
-          <h3 class="heading text-xl font-semibold mt-2">CRM & Enterprise Testing</h3>
-          <p class="text-slate-600 mt-2">Specialized experience in testing Salesforce CRM, web applications, and desktop applications across various platforms.</p>
+        
+        <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal">
+          <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4">
+            <span class="text-secondary text-2xl">👨‍💼</span>
+          </div>
+          <h3 class="heading text-xl font-semibold mb-3">Technical Consultation</h3>
+          <p class="text-slate-600">
+            Expert advice on Laravel architecture, technology stack selection, and project planning for optimal results.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="reveal text-center mb-12">
-        <h2 class="heading text-4xl sm:text-5xl font-bold gradient-text mb-6">Let's Work Together</h2>
-        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-          Ready to elevate your software quality? Let's discuss how I can help ensure your applications meet the highest standards.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 mb-12 reveal">
-        <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100">
-          <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+  <section id="contact" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <h2 class="heading text-3xl sm:text-4xl font-bold mb-6">
+            Let's Build Something
+            <span class="gradient-text">Amazing</span>
+          </h2>
+          <p class="text-slate-600 mb-8">
+            Have a project in mind? Let's discuss how we can work together to bring your vision to life with Laravel's power and flexibility.
+          </p>
+          
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold">Email</div>
+                <a href="mailto:abdulqavi.dev@example.com" class="text-primary hover:text-primary-dark transition-colors">
+                  abdulqavidev@gmail.com
+                </a>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold">Phone</div>
+                <a href="tel:+923052370208" class="text-accent hover:text-accent/80 transition-colors">
+                  +92 305 23 70208
+                </a>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
+                <svg class="w-6 h-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold">Location</div>
+                <div class="text-slate-600">Karachi, Pakistan</div>
+              </div>
+            </div>
           </div>
-          <h3 class="font-semibold mb-2">Email</h3>
-          <a href="mailto:naseer.move@gmail.com" class="text-indigo-600 hover:text-indigo-700 text-sm">naseer.move@gmail.com</a>
-        </div>
-
-        <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100">
-          <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          
+          <div class="mt-8 flex gap-4">
+            <a href="https://linkedin.com/in/abdulqavi" target="_blank" class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/asadmmn" target="_blank" class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com/abdulqavi" target="_blank" class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center hover:bg-accent hover:text-white transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.213c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
           </div>
-          <h3 class="font-semibold mb-2">Phone</h3>
-          <a href="tel:+923003646440" class="text-indigo-600 hover:text-indigo-700 text-sm">+92 300 3646440</a>
         </div>
-
-        <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100">
-          <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        
+        <div class="reveal">
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <h3 class="heading text-xl font-semibold mb-6">Send Me a Message</h3>
+            <form class="space-y-4">
+              <div>
+                <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+              </div>
+              <div>
+                <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+              </div>
+              <div>
+                <textarea placeholder="Your Message" rows="4" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"></textarea>
+              </div>
+              <button type="submit" class="w-full px-6 py-3 rounded-lg bg-primary text-white font-medium hover:bg-primary-dark transition-all">
+                Send Message
+              </button>
+            </form>
           </div>
-          <h3 class="font-semibold mb-2">Location</h3>
-          <p class="text-slate-600 text-sm">Lahore, Pakistan</p>
         </div>
-      </div>
-
-      <div class="text-center reveal">
-        <a href="https://linkedin.com/in/mr-naseer/" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl gradient-bg  font-semibold shadow-lg hover:shadow-xl transition-all">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-          </svg>
-          Connect on LinkedIn
-        </a>
       </div>
     </div>
   </section>
 
-
-  <footer class="py-10 border-t border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-slate-500">© 2025 Naseer Ahmed. All rights reserved.</p>
-      <div class="flex gap-4 text-sm text-slate-600">
-        <a href="https://linkedin.com/in/mr-naseer/" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-        <a href="mailto:naseer.move@gmail.com" aria-label="Email">Email</a>
+  <footer class="py-10 border-t border-slate-200 bg-secondary text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+            <span class="text-white font-bold">AQ</span>
+          </div>
+          <div>
+            <div class="heading font-semibold">Abdul Qavi</div>
+            <div class="text-slate-300 text-sm">Senior Laravel Developer</div>
+          </div>
+        </div>
+        
+        <div class="flex gap-6 text-sm">
+          <a href="#about" class="text-slate-300 hover:text-white transition-colors">About</a>
+          <a href="#experience" class="text-slate-300 hover:text-white transition-colors">Experience</a>
+          <a href="#projects" class="text-slate-300 hover:text-white transition-colors">Projects</a>
+          <a href="#contact" class="text-slate-300 hover:text-white transition-colors">Contact</a>
+        </div>
+        
+        <div class="text-sm text-slate-300">
+          © 2024 Abdul Qavi. All rights reserved.
+        </div>
       </div>
     </div>
   </footer>
@@ -458,11 +808,44 @@
     const nav = document.getElementById('mobileNav');
     btn?.addEventListener('click', () => nav.classList.toggle('hidden'));
 
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobileNav a').forEach(link => {
+      link.addEventListener('click', () => nav.classList.add('hidden'));
+    });
+
     // Scroll animations
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
-    }, {threshold: .12});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Form submission
+    const form = document.querySelector('form');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for your message! I will get back to you soon.');
+      form.reset();
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>
