@@ -10,32 +10,33 @@
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#FF2D20',
-            'primary-dark': '#E91E11',
-            secondary: '#111827',
-            accent: '#0EA5E9'
+            primary: '#1E40AF',
+            'primary-dark': '#1E3A8A',
+            secondary: '#374151',
+            accent: '#047857',
+            'accent-light': '#10B981',
+            neutral: '#111827'
           },
           animation: {
-            'float': 'float 6s ease-in-out infinite',
-            'gradient': 'gradient 8s ease infinite',
+            'fade-in': 'fadeIn 0.8s ease-out',
+            'slide-up': 'slideUp 0.6s ease-out',
           },
           keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-20px)' },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' }
             },
-            gradient: {
-              '0%, 100%': { backgroundPosition: '0% 50%' },
-              '50%': { backgroundPosition: '100% 50%' },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' }
             }
           }
         }
@@ -43,135 +44,238 @@
     }
   </script>
   <style>
-    :root{
-      --primary:#FF2D20;
-      --primary-dark:#E91E11;
-      --secondary:#111827;
-      --accent:#0EA5E9;
-      --ink:#0B0B0C;
-      --muted:#6B7280; 
-      --ring:rgba(17,24,39,.16);
+    :root {
+      --primary: #1E40AF;
+      --primary-dark: #1E3A8A;
+      --secondary: #374151;
+      --accent: #047857;
+      --neutral: #111827;
+      --light: #F9FAFB;
+      --border: #E5E7EB;
     }
-    html{scroll-behavior:smooth}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink)}
-    .heading{font-family:Poppins,Inter,system-ui,Arial,sans-serif}
-    .glass{backdrop-filter:saturate(140%) blur(10px);background:rgba(255,255,255,.8)}
-    .card{transition:transform .3s ease, box-shadow .3s ease}
-    .card:hover{transform:translateY(-8px); box-shadow:0 20px 40px rgba(0,0,0,.1)}
-    .reveal{opacity:0; transform:translateY(20px); transition:opacity .8s ease, transform .8s ease}
-    .reveal.visible{opacity:1; transform:none}
-    .gradient-bg{
-      background: linear-gradient(-45deg, #FF2D20, #0EA5E9, #111827);
-      background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
+    
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
     }
-    .gradient-text{
-      background: linear-gradient(90deg, #FF2D20, #0EA5E9);
+    
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--neutral);
+      background-color: #FFFFFF;
+    }
+    
+    .heading {
+      font-family: 'Source Serif Pro', serif;
+      font-weight: 600;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+    
+    .glass {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .card {
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+    }
+    
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      border-color: var(--primary);
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-left: 30px;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+    
+    .skill-bar {
+      height: 6px;
+      background-color: #E5E7EB;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      border-radius: 3px;
+      transition: width 1.5s ease-out;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(30, 64, 175, 0.2);
+    }
+    
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    /* Print styles */
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      
+      body {
+        font-size: 12pt;
+      }
+      
+      a {
+        color: #000 !important;
+        text-decoration: none !important;
+      }
+    }
   </style>
 </head>
-<body class="bg-white text-slate-900">
+<body class="bg-white text-neutral">
   
-  <header class="fixed top-0 inset-x-0 z-50">
-  <div class="glass border-b border-slate-200/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      
-      <!-- Logo -->
+  <!-- Navigation -->
+  <header class="fixed top-0 inset-x-0 z-50 glass border-b border-border shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+         <!-- Logo -->
       <a href="#home" class="flex items-center gap-2">
         <img src="assets/images/logo.png" alt="Abdul Qavi" class="h-10 w-auto object-contain">
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex gap-6 text-sm font-medium">
-        <a class="hover:text-primary transition-colors" href="#about">About</a>
-        <a class="hover:text-primary transition-colors" href="#experience">Experience</a>
-        <a class="hover:text-primary transition-colors" href="#projects">Projects</a>
-        <a class="hover:text-primary transition-colors" href="#skills">Skills</a>
-        <a class="hover:text-primary transition-colors" href="#services">Services</a>
-        <a class="hover:text-primary transition-colors" href="#contact">Contact</a>
-      </nav>
-
-      <!-- Mobile Menu Button -->
-      <button id="menuBtn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-slate-200 shadow-sm hover:border-primary transition" aria-label="Open menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Navigation -->
-  <div id="mobileNav" class="hidden md:hidden bg-white/95 backdrop-blur border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col gap-3 text-sm font-medium">
-      <a class="py-2 hover:text-primary transition-colors" href="#about">About</a>
-      <a class="py-2 hover:text-primary transition-colors" href="#experience">Experience</a>
-      <a class="py-2 hover:text-primary transition-colors" href="#projects">Projects</a>
-      <a class="py-2 hover:text-primary transition-colors" href="#skills">Skills</a>
-      <a class="py-2 hover:text-primary transition-colors" href="#services">Services</a>
-      <a class="py-2 hover:text-primary transition-colors" href="#contact">Contact</a>
-    </div>
-  </div>
-</header>
-
-  <!-- Hero Section -->  
-  <section id="home" class="pt-36 pb-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-center">
-      
-      <div class="lg:col-span-7 reveal">
-        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-slate-500 mb-4">
-          <span class="inline-block w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-          Senior Laravel Developer
-        </div>
-        <h1 class="heading mt-2 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-          Building Scalable
-          <span class="gradient-text">Web Solutions</span>
-          with Laravel
-        </h1>
-        <p class="mt-6 text-slate-600 max-w-2xl text-lg">
-          I specialize in creating robust backend systems, RESTful APIs, and full-stack applications using Laravel, Vue.js, and modern PHP frameworks. With 5+ years of experience, I transform complex requirements into elegant, maintainable code.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a href="#projects" class="px-6 py-3 rounded-xl bg-primary text-white font-medium shadow-lg hover:bg-primary-dark hover:shadow-xl transition-all">
-            View My Work
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a class="text-sm font-medium text-secondary hover:text-primary transition-colors" href="#about">About</a>
+          <a class="text-sm font-medium text-secondary hover:text-primary transition-colors" href="#experience">Experience</a>
+          <a class="text-sm font-medium text-secondary hover:text-primary transition-colors" href="#projects">Projects</a>
+          <a class="text-sm font-medium text-secondary hover:text-primary transition-colors" href="#skills">Skills</a>
+          <a class="text-sm font-medium text-secondary hover:text-primary transition-colors" href="#contact">Contact</a>
+          <a href="#contact" class="btn-primary px-4 py-2 text-white rounded-lg text-sm font-medium no-print">
+            Hire Me
           </a>
-          <a href="#contact" class="px-6 py-3 rounded-xl border border-slate-300 font-medium hover:border-primary hover:text-primary transition-all">
-            Let's Collaborate
-          </a>
-        </div>
-        <div class="mt-10 flex flex-wrap gap-6">
-          <div class="flex items-center gap-3">
-            <div class="w-2 h-2 rounded-full bg-green-500"></div>
-            <span class="text-sm text-slate-600">Available for projects</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-            <span class="text-sm text-slate-600">Remote & On-site</span>
-          </div>
-        </div>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg border border-border hover:border-primary transition-colors no-print">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
       </div>
-      
-      <div class="lg:col-span-5 reveal">
-        <div class="relative">
-          <div class="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-xl"></div>
-          <div class="relative aspect-square rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
-            <!-- Placeholder for profile image - Replace with actual image -->
-           <video
-  class="w-full h-full object-cover"
-  src="assets/videos/profile.mp4"
-  autoplay
-  muted
-  loop
-  playsinline
-></video>
+    </div>
 
+    <!-- Mobile Navigation -->
+    <div id="mobileNav" class="hidden md:hidden bg-white border-b border-border shadow-lg">
+      <div class="max-w-6xl mx-auto px-4 py-4 space-y-3">
+        <a class="block py-2 text-sm font-medium text-secondary hover:text-primary transition-colors" href="#about">About</a>
+        <a class="block py-2 text-sm font-medium text-secondary hover:text-primary transition-colors" href="#experience">Experience</a>
+        <a class="block py-2 text-sm font-medium text-secondary hover:text-primary transition-colors" href="#projects">Projects</a>
+        <a class="block py-2 text-sm font-medium text-secondary hover:text-primary transition-colors" href="#skills">Skills</a>
+        <a class="block py-2 text-sm font-medium text-secondary hover:text-primary transition-colors" href="#contact">Contact</a>
+        <a href="#contact" class="btn-primary block text-center py-2 rounded-lg text-sm font-medium mt-4">
+          Hire Me
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="pt-28 pb-16 md:pt-32 md:pb-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 animate-fade-in">
+          <div class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-accent font-semibold mb-4">
+            <span class="w-2 h-2 rounded-full bg-accent"></span>
+            Senior Laravel Developer
           </div>
-          <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-white rounded-2xl border border-slate-200 p-4 shadow-lg">
-            <div class="text-center">
-              <div class="text-2xl">4+</div>
-              <div class="text-xs text-slate-600">Years Experience</div>
+          <h1 class="heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            Building Scalable
+            <span class="gradient-text block mt-2">Web Solutions</span>
+            with Laravel
+          </h1>
+          <p class="text-lg text-secondary leading-relaxed mb-8 max-w-2xl">
+            I specialize in creating robust backend systems, RESTful APIs, and full-stack applications using Laravel, Vue.js, and modern PHP frameworks. With 5+ years of experience, I transform complex requirements into elegant, maintainable code.
+          </p>
+          <div class="flex flex-wrap gap-4 mb-10">
+            <a href="#projects" class="btn-primary px-6 py-3 rounded-lg font-medium">
+              View My Work
+            </a>
+            <a href="#contact" class="btn-outline px-6 py-3 rounded-lg font-medium">
+              Let's Collaborate
+            </a>
+          </div>
+          <div class="flex flex-wrap gap-6 text-sm text-secondary">
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-green-500"></div>
+              <span>Available for projects</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+              <span>Remote & On-site</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="lg:col-span-5 relative animate-slide-up">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl"></div>
+            <div class="relative aspect-square rounded-xl overflow-hidden border-4 border-white shadow-xl">
+              <video class="w-full h-full object-cover" src="assets/videos/profile.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="absolute -bottom-4 -right-4 bg-white rounded-lg border border-border p-4 shadow-lg">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-primary">4+</div>
+                <div class="text-xs text-secondary">Years Experience</div>
+              </div>
             </div>
           </div>
         </div>
@@ -179,55 +283,70 @@
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="py-20 bg-gradient-to-b from-white to-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="heading text-3xl sm:text-4xl font-bold mb-6">
+          <h2 class="heading text-3xl md:text-4xl font-bold mb-4">
             About <span class="gradient-text">Me</span>
           </h2>
-          <p class="text-slate-600 mb-6">
+          <div class="section-title mb-8"></div>
+          <p class="text-secondary mb-6 leading-relaxed">
             I'm a passionate Laravel developer with over 4 years of experience building scalable web applications and APIs. My expertise lies in creating efficient backend systems, integrating third-party services, and optimizing application performance.
           </p>
-          <p class="text-slate-600 mb-8">
+          <p class="text-secondary mb-8 leading-relaxed">
             I thrive on solving complex problems and enjoy working on challenging projects that push the boundaries of what's possible with Laravel and modern web technologies.
           </p>
           
           <div class="grid sm:grid-cols-2 gap-4">
-            <div class="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200">
-              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                <span class="text-primary font-bold">50+</span>
-              </div>
-              <div>
-                <div class="font-semibold">Projects</div>
-                <div class="text-sm text-slate-500">Completed</div>
+            <div class="card p-4 rounded-lg bg-white">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <span class="text-primary font-bold">50+</span>
+                </div>
+                <div>
+                  <div class="font-semibold">Projects</div>
+                  <div class="text-sm text-secondary">Completed</div>
+                </div>
               </div>
             </div>
             
-            <div class="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200">
-              <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
-                <span class="text-accent font-bold">4+</span>
-              </div>
-              <div>
-                <div class="font-semibold">Years</div>
-                <div class="text-sm text-slate-500">Experience</div>
+            <div class="card p-4 rounded-lg bg-white">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                  <span class="text-accent font-bold">4+</span>
+                </div>
+                <div>
+                  <div class="font-semibold">Years</div>
+                  <div class="text-sm text-secondary">Experience</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         
         <div class="space-y-6">
-          <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
-            <h3 class="font-semibold text-lg mb-3">My Philosophy</h3>
-            <p class="text-slate-600">
+          <div class="card p-6 rounded-lg bg-white">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <i class="bi bi-lightbulb text-primary text-lg"></i>
+              </div>
+              <h3 class="heading text-xl font-semibold">My Philosophy</h3>
+            </div>
+            <p class="text-secondary">
               I believe in writing clean, maintainable code that not only works today but remains flexible for tomorrow's requirements. Quality, performance, and user experience are at the core of everything I build.
             </p>
           </div>
           
-          <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
-            <h3 class="font-semibold text-lg mb-3">Current Focus</h3>
-            <p class="text-slate-600">
+          <div class="card p-6 rounded-lg bg-white">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                <i class="bi bi-bullseye text-accent text-lg"></i>
+              </div>
+              <h3 class="heading text-xl font-semibold">Current Focus</h3>
+            </div>
+            <p class="text-secondary">
               Currently specializing in Laravel ecosystem including Livewire, Inertia.js, and API development with Sanctum. Exploring microservices architecture and real-time applications with Laravel Echo and WebSockets.
             </p>
           </div>
@@ -236,100 +355,86 @@
     </div>
   </section>
 
-  <!-- Experience -->
-  <section id="experience" class="py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="reveal text-center mb-12">
-        <h2 class="heading text-3xl sm:text-4xl font-bold mb-4">
+  <!-- Experience Section -->
+  <section id="experience" class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="heading text-3xl md:text-4xl font-bold mb-4">
           Work <span class="gradient-text">Experience</span>
         </h2>
-        <p class="text-slate-600 max-w-2xl mx-auto">
+        <div class="section-title mx-auto mb-8"></div>
+        <p class="text-secondary max-w-2xl mx-auto">
           4+ years of professional experience in full-stack web development
         </p>
       </div>
       
-      <div class="relative">
-        <!-- Timeline line -->
-        <div class="absolute left-4 lg:left-1/2 transform lg:-translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-primary to-accent"></div>
-        
-        <div class="space-y-12">
-          <!-- Current Role -->
-          <div class="relative pl-12 lg:pl-0 lg:grid lg:grid-cols-2 gap-8 items-center reveal">
-            <div class="lg:text-right lg:pr-12 mb-6 lg:mb-0">
-              <div class="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-white -ml-2"></div>
-              <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-semibold mb-2">
+      <div class="space-y-12">
+        <!-- Current Role -->
+        <div class="grid lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-4">
+            <div class="sticky top-24">
+              <div class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-primary font-semibold mb-2">
                 <span class="w-2 h-2 rounded-full bg-primary"></span>
                 Current Position
               </div>
-              <h3 class="heading text-xl font-semibold">Full-stack Developer</h3>
+              <h3 class="heading text-xl font-semibold mb-1">Full-stack Developer</h3>
               <p class="text-primary font-medium">Design Zeros</p>
-              <p class="text-slate-500 text-sm mt-1">Oct 2023 – Present</p>
-              <p class="text-slate-500 text-sm">Karachi Division, Pakistan</p>
-            </div>
-            
-            <div class="lg:pl-12">
-              <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-                <ul class="space-y-3">
-                  <li class="flex items-start gap-3">
-                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
-                    <span>Leading development of full-stack web applications using Laravel, Vue.js, and React</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
-                    <span>Collaborating with designers to implement new features and maintain existing platforms</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
-                    <span>Improving speed, security, and user experience across systems</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
-                    <span>Managing version control and deployment processes through Git and server tools</span>
-                  </li>
-                </ul>
-              </div>
+              <p class="text-secondary text-sm mt-2">Oct 2023 – Present</p>
+              <p class="text-secondary text-sm">Karachi Division, Pakistan</p>
             </div>
           </div>
           
-          <!-- Previous Role -->
-          <div class="relative pl-12 lg:pl-0 lg:grid lg:grid-cols-2 gap-8 items-center reveal">
-            <div class="lg:text-right lg:pr-12 mb-6 lg:mb-0 order-2 lg:order-1">
-              <div class="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-white -ml-2"></div>
-              <div class="lg:hidden inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-semibold mb-2">
-                <span class="w-2 h-2 rounded-full bg-primary"></span>
-                Previous Role
-              </div>
-              <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-                <ul class="space-y-3">
-                  <li class="flex items-start gap-3">
-                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
-                    <span>Built and maintained dynamic websites using PHP, Laravel, and JavaScript</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
-                    <span>Worked closely with clients to deliver features and fix issues efficiently</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
-                    <span>Developed front-end interfaces using Bootstrap and Vue.js</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="w-2 h-2 rounded-full bg-primary mt-2"></span>
-                    <span>Improved performance and maintainability through clean, modular development</span>
-                  </li>
-                </ul>
-              </div>
+          <div class="lg:col-span-8">
+            <div class="card p-6 rounded-lg bg-white">
+              <ul class="space-y-3">
+                <li class="timeline-item">
+                  Leading development of full-stack web applications using Laravel, Vue.js, and React
+                </li>
+                <li class="timeline-item">
+                  Collaborating with designers to implement new features and maintain existing platforms
+                </li>
+                <li class="timeline-item">
+                  Improving speed, security, and user experience across systems
+                </li>
+                <li class="timeline-item">
+                  Managing version control and deployment processes through Git and server tools
+                </li>
+              </ul>
             </div>
-            
-            <div class="lg:pl-12 order-1 lg:order-2">
-              <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-semibold mb-2">
+          </div>
+        </div>
+        
+        <!-- Previous Role -->
+        <div class="grid lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-4">
+            <div class="sticky top-24">
+              <div class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-primary font-semibold mb-2">
                 <span class="w-2 h-2 rounded-full bg-primary"></span>
                 Previous Role
               </div>
-              <h3 class="heading text-xl font-semibold">Web Developer</h3>
+              <h3 class="heading text-xl font-semibold mb-1">Web Developer</h3>
               <p class="text-primary font-medium">ITB Solutions</p>
-              <p class="text-slate-500 text-sm mt-1">Dec 2022 – Oct 2023</p>
-              <p class="text-slate-500 text-sm">Karachi, Pakistan</p>
+              <p class="text-secondary text-sm mt-2">Dec 2022 – Oct 2023</p>
+              <p class="text-secondary text-sm">Karachi, Pakistan</p>
+            </div>
+          </div>
+          
+          <div class="lg:col-span-8">
+            <div class="card p-6 rounded-lg bg-white">
+              <ul class="space-y-3">
+                <li class="timeline-item">
+                  Built and maintained dynamic websites using PHP, Laravel, and JavaScript
+                </li>
+                <li class="timeline-item">
+                  Worked closely with clients to deliver features and fix issues efficiently
+                </li>
+                <li class="timeline-item">
+                  Developed front-end interfaces using Bootstrap and Vue.js
+                </li>
+                <li class="timeline-item">
+                  Improved performance and maintainability through clean, modular development
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -337,25 +442,21 @@
     </div>
   </section>
 
-  
-  
-   
-  
-<!-- Projects -->
-<section id="projects" class="py-20 bg-gradient-to-b from-white to-slate-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <div class="reveal text-center mb-12">
-      <h2 class="heading text-3xl sm:text-4xl font-bold mb-4">
-        Featured <span class="gradient-text">Projects</span>
-      </h2>
-      <p class="text-slate-600 max-w-2xl mx-auto">
-        Real-world projects built with Laravel, Vue.js, APIs, and modern web technologies.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 bg-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="heading text-3xl md:text-4xl font-bold mb-4">
+          Featured <span class="gradient-text">Projects</span>
+        </h2>
+        <div class="section-title mx-auto mb-8"></div>
+        <p class="text-secondary max-w-2xl mx-auto">
+          Real-world projects built with Laravel, Vue.js, APIs, and modern web technologies.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+       
       <!-- Project 1 -->
       <div class="card rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm reveal">
         <div class="h-48 bg-gradient-to-r from-primary to-accent flex items-center justify-center">
@@ -490,132 +591,137 @@
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
 
-  <!-- Skills -->
-  <section id="skills" class="py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="reveal text-center mb-12">
-        <h2 class="heading text-3xl sm:text-4xl font-bold mb-4">
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="heading text-3xl md:text-4xl font-bold mb-4">
           Technical <span class="gradient-text">Expertise</span>
         </h2>
-        <p class="text-slate-600 max-w-2xl mx-auto">
+        <div class="section-title mx-auto mb-8"></div>
+        <p class="text-secondary max-w-2xl mx-auto">
           Comprehensive skill set covering Laravel ecosystem, modern PHP development, and full-stack web technologies.
         </p>
       </div>
       
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Core Technologies -->
-        <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal">
-          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-            <span class="text-primary fs-4">
-  <i class="bi bi-gear-fill"></i>
-</span>
-   </div>
-          <h3 class="heading text-lg font-semibold mb-4">Core Technologies</h3>
-          <div class="space-y-3">
+        <div class="card p-6 rounded-lg bg-white">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+              <i class="bi bi-gear text-primary text-xl"></i>
+            </div>
+            <h3 class="heading text-xl font-semibold">Core Technologies</h3>
+          </div>
+          
+          <div class="space-y-4">
             <div>
-              <div class="flex justify-between text-sm mb-1">
-                <span>Laravel</span>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="font-medium">Laravel</span>
                 <span class="text-primary font-semibold">95%</span>
               </div>
-              <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
-                <div class="h-full bg-primary rounded-full" style="width: 95%"></div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 95%"></div>
               </div>
             </div>
+            
             <div>
-              <div class="flex justify-between text-sm mb-1">
-                <span>PHP 8+</span>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="font-medium">PHP 8+</span>
                 <span class="text-primary font-semibold">98%</span>
               </div>
-              <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
-                <div class="h-full bg-primary rounded-full" style="width: 98%"></div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 98%"></div>
               </div>
             </div>
+            
             <div>
-              <div class="flex justify-between text-sm mb-1">
-                <span>MySQL/PostgreSQL</span>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="font-medium">MySQL/PostgreSQL</span>
                 <span class="text-primary font-semibold">90%</span>
               </div>
-              <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
-                <div class="h-full bg-primary rounded-full" style="width: 90%"></div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
               </div>
             </div>
+            
             <div>
-              <div class="flex justify-between text-sm mb-1">
-                <span>REST API</span>
+              <div class="flex justify-between text-sm mb-2">
+                <span class="font-medium">REST API</span>
                 <span class="text-primary font-semibold">92%</span>
               </div>
-              <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
-                <div class="h-full bg-primary rounded-full" style="width: 92%"></div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 92%"></div>
               </div>
             </div>
           </div>
         </div>
         
         <!-- Frontend & Tools -->
-        <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal">
-          <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-            <span class="text-accent fs-4">
-  <i class="bi bi-palette-fill"></i>
-</span>
-
+        <div class="card p-6 rounded-lg bg-white">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
+              <i class="bi bi-palette text-accent text-xl"></i>
+            </div>
+            <h3 class="heading text-xl font-semibold">Frontend & Tools</h3>
           </div>
-          <h3 class="heading text-lg font-semibold mb-4">Frontend & Tools</h3>
+          
           <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">Vue.js 3</span>
-            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">Inertia.js</span>
-            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">Livewire</span>
-            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">Tailwind CSS</span>
-            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">Alpine.js</span>
-            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">Git</span>
-            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">Docker</span>
-            <span class="px-3 py-2 bg-accent/10 text-accent rounded-lg">AWS</span>
+            <span class="px-3 py-1.5 bg-accent/10 text-accent text-sm rounded-lg">Vue.js 3</span>
+            <span class="px-3 py-1.5 bg-accent/10 text-accent text-sm rounded-lg">Inertia.js</span>
+            <span class="px-3 py-1.5 bg-accent/10 text-accent text-sm rounded-lg">Livewire</span>
+            <span class="px-3 py-1.5 bg-accent/10 text-accent text-sm rounded-lg">Tailwind CSS</span>
+            <span class="px-3 py-1.5 bg-accent/10 text-accent text-sm rounded-lg">Alpine.js</span>
+            <span class="px-3 py-1.5 bg-accent/10 text-accent text-sm rounded-lg">Git</span>
+            <span class="px-3 py-1.5 bg-accent/10 text-accent text-sm rounded-lg">Docker</span>
+            <span class="px-3 py-1.5 bg-accent/10 text-accent text-sm rounded-lg">AWS</span>
           </div>
         </div>
         
         <!-- Laravel Ecosystem -->
-        <div class="card bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal">
-          <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4">
-            <span class="text-secondary fs-4">
-  <i class="bi bi-fire"></i>
-</span>
-
+        <div class="card p-6 rounded-lg bg-white">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+              <i class="bi bi-fire text-primary text-xl"></i>
+            </div>
+            <h3 class="heading text-xl font-semibold">Laravel Ecosystem</h3>
           </div>
-          <h3 class="heading text-lg font-semibold mb-4">Laravel Ecosystem</h3>
+          
           <ul class="space-y-3">
             <li class="flex items-center gap-3">
               <div class="w-2 h-2 rounded-full bg-primary"></div>
-              <span>Laravel Sanctum & Passport</span>
+              <span class="text-sm">Laravel Sanctum & Passport</span>
             </li>
             <li class="flex items-center gap-3">
               <div class="w-2 h-2 rounded-full bg-primary"></div>
-              <span>Laravel Horizon & Queues</span>
+              <span class="text-sm">Laravel Horizon & Queues</span>
             </li>
             <li class="flex items-center gap-3">
               <div class="w-2 h-2 rounded-full bg-primary"></div>
-              <span>Laravel Echo & Broadcasting</span>
+              <span class="text-sm">Laravel Echo & Broadcasting</span>
             </li>
             <li class="flex items-center gap-3">
               <div class="w-2 h-2 rounded-full bg-primary"></div>
-              <span>Laravel Dusk & Testing</span>
+              <span class="text-sm">Laravel Dusk & Testing</span>
             </li>
             <li class="flex items-center gap-3">
               <div class="w-2 h-2 rounded-full bg-primary"></div>
-              <span>Laravel Socialite</span>
+              <span class="text-sm">Laravel Socialite</span>
             </li>
             <li class="flex items-center gap-3">
               <div class="w-2 h-2 rounded-full bg-primary"></div>
-              <span>Laravel Cashier & Billing</span>
+              <span class="text-sm">Laravel Cashier & Billing</span>
             </li>
           </ul>
         </div>
       </div>
     </div>
   </section>
-
   <!-- Services -->
   <section id="services" class="py-20 bg-gradient-to-b from-white to-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -705,28 +811,27 @@
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="reveal">
-          <h2 class="heading text-3xl sm:text-4xl font-bold mb-6">
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="heading text-3xl md:text-4xl font-bold mb-6">
             Let's Build Something
-            <span class="gradient-text">Amazing</span>
+            <span class="gradient-text block">Amazing</span>
           </h2>
-          <p class="text-slate-600 mb-8">
+          <div class="section-title mb-8"></div>
+          <p class="text-secondary mb-8 leading-relaxed">
             Have a project in mind? Let's discuss how we can work together to bring your vision to life with Laravel's power and flexibility.
           </p>
           
           <div class="space-y-6">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
+              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                <i class="bi bi-envelope text-primary text-xl"></i>
               </div>
               <div>
-                <div class="font-semibold">Email</div>
+                <div class="font-semibold mb-1">Email</div>
                 <a href="mailto:abdulqavi.dev@example.com" class="text-primary hover:text-primary-dark transition-colors">
                   abdulqavidev@gmail.com
                 </a>
@@ -734,66 +839,52 @@
             </div>
             
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
-                <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                </svg>
+              <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
+                <i class="bi bi-telephone text-accent text-xl"></i>
               </div>
               <div>
-                <div class="font-semibold">Phone</div>
-                <a href="tel:+923052370208" class="text-accent hover:text-accent/80 transition-colors">
+                <div class="font-semibold mb-1">Phone</div>
+                <a href="tel:+923052370208" class="text-accent hover:text-accent-light transition-colors">
                   +92 305 23 70208
                 </a>
               </div>
             </div>
             
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
-                <svg class="w-6 h-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
+              <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
+                <i class="bi bi-geo-alt text-secondary text-xl"></i>
               </div>
               <div>
-                <div class="font-semibold">Location</div>
-                <div class="text-slate-600">Karachi, Pakistan</div>
+                <div class="font-semibold mb-1">Location</div>
+                <div class="text-secondary">Karachi, Pakistan</div>
               </div>
             </div>
           </div>
           
           <div class="mt-8 flex gap-4">
-            <a href="https://linkedin.com/in/abdulqavi" target="_blank" class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
+            <a href="https://linkedin.com/in/abdulqavi" target="_blank" class="w-10 h-10 rounded-lg border border-border flex items-center justify-center hover:border-primary hover:bg-primary/10 transition-all">
+              <i class="bi bi-linkedin text-secondary"></i>
             </a>
-            <a href="https://github.com/asadmmn" target="_blank" class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center hover:bg-secondary hover:text-white transition-all">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-            </a>
-            <a href="https://twitter.com/abdulqavi" target="_blank" class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center hover:bg-accent hover:text-white transition-all">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.213c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-              </svg>
+            <a href="https://github.com/asadmmn" target="_blank" class="w-10 h-10 rounded-lg border border-border flex items-center justify-center hover:border-secondary hover:bg-secondary/10 transition-all">
+              <i class="bi bi-github text-secondary"></i>
             </a>
           </div>
         </div>
         
-        <div class="reveal">
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <div>
+          <div class="card p-6 rounded-lg bg-white">
             <h3 class="heading text-xl font-semibold mb-6">Send Me a Message</h3>
             <form class="space-y-4">
               <div>
-                <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+                <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
               </div>
               <div>
-                <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+                <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
               </div>
               <div>
-                <textarea placeholder="Your Message" rows="4" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"></textarea>
+                <textarea placeholder="Your Message" rows="4" class="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"></textarea>
               </div>
-              <button type="submit" class="w-full px-6 py-3 rounded-lg bg-primary text-white font-medium hover:bg-primary-dark transition-all">
+              <button type="submit" class="btn-primary w-full py-3 rounded-lg font-medium">
                 Send Message
               </button>
             </form>
@@ -803,27 +894,28 @@
     </div>
   </section>
 
-  <footer class="py-10 border-t border-slate-200 bg-secondary text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Footer -->
+  <footer class="py-10 border-t border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-            <span class="text-white font-bold">AQ</span>
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+            <span class="text-white font-bold text-sm">AQ</span>
           </div>
           <div>
             <div class="heading font-semibold">Abdul Qavi</div>
-            <div class="text-slate-300 text-sm">Senior Laravel Developer</div>
+            <div class="text-secondary text-sm">Senior Laravel Developer</div>
           </div>
         </div>
         
         <div class="flex gap-6 text-sm">
-          <a href="#about" class="text-slate-300 hover:text-white transition-colors">About</a>
-          <a href="#experience" class="text-slate-300 hover:text-white transition-colors">Experience</a>
-          <a href="#projects" class="text-slate-300 hover:text-white transition-colors">Projects</a>
-          <a href="#contact" class="text-slate-300 hover:text-white transition-colors">Contact</a>
+          <a href="#about" class="text-secondary hover:text-primary transition-colors">About</a>
+          <a href="#experience" class="text-secondary hover:text-primary transition-colors">Experience</a>
+          <a href="#projects" class="text-secondary hover:text-primary transition-colors">Projects</a>
+          <a href="#contact" class="text-secondary hover:text-primary transition-colors">Contact</a>
         </div>
         
-        <div class="text-sm text-slate-300">
+        <div class="text-sm text-secondary">
           © 2026 Abdul Qavi. All rights reserved.
         </div>
       </div>
@@ -831,60 +923,110 @@
   </footer>
 
   <script>
-    // Mobile menu
-    const btn = document.getElementById('menuBtn');
-    const nav = document.getElementById('mobileNav');
-    btn?.addEventListener('click', () => nav.classList.toggle('hidden'));
-
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('#mobileNav a').forEach(link => {
-      link.addEventListener('click', () => nav.classList.add('hidden'));
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    menuBtn?.addEventListener('click', () => {
+      mobileNav.classList.toggle('hidden');
     });
-
-    // Scroll animations
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
+    
+    // Close mobile menu when clicking links
+    document.querySelectorAll('#mobileNav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.add('hidden');
+      });
+    });
+    
+    // Animate skill bars on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const skillBars = entry.target.querySelectorAll('.skill-progress');
+          skillBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            setTimeout(() => {
+              bar.style.width = width;
+            }, 300);
+          });
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.5 });
     
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
+    document.querySelectorAll('.card').forEach(card => {
+      observer.observe(card);
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
     // Form submission
     const form = document.querySelector('form');
     form?.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Thank you for your message! I will get back to you soon.');
-      form.reset();
+      
+      // Simple form validation
+      const inputs = form.querySelectorAll('input, textarea');
+      let isValid = true;
+      
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          isValid = false;
+          input.classList.add('border-red-500');
+        } else {
+          input.classList.remove('border-red-500');
+        }
+      });
+      
+      if (isValid) {
+        alert('Thank you for your message! I will get back to you soon.');
+        form.reset();
+      } else {
+        alert('Please fill in all required fields.');
+      }
     });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+    
+    // Add active class to navigation links on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (scrollY >= sectionTop - 100) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('text-primary');
+        link.classList.add('text-secondary');
+        
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.remove('text-secondary');
+          link.classList.add('text-primary');
         }
       });
     });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
