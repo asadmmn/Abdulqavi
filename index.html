@@ -107,6 +107,15 @@
     .project-tags span{font-size:.74rem;font-weight:700;background:#f0f0ec;padding:6px 9px;border-radius:7px}
     .project-link{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-size:.86rem;font-weight:800;margin-top:19px}
     .project-link:hover{text-decoration:underline}
+    .case-study{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);display:grid;gap:12px}
+    .case-row{display:grid;grid-template-columns:76px 1fr;gap:12px}
+    .case-label{font-size:.67rem;text-transform:uppercase;letter-spacing:.11em;font-weight:800;color:#999;padding-top:3px}
+    .case-row p{margin:0!important;color:#555;font-size:.84rem;line-height:1.55}
+    .project-number{font-family:"Manrope";font-size:.72rem;color:#999;font-weight:800;letter-spacing:.1em}
+    .project-card .project-body h3{margin-top:5px}
+    .case-tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+    .case-tech span{font-size:.68rem;font-weight:700;padding:5px 8px;border:1px solid var(--line);border-radius:999px;color:#666}
+    @media(max-width:575.98px){.case-row{grid-template-columns:1fr;gap:3px}}
     .service-card{border-top:1px solid #333;padding:25px 0;height:100%}
     .service-card .icon{width:42px;height:42px;border-radius:12px;background:#252525;display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:19px}
     .service-card h3{font-size:1.22rem}
@@ -298,44 +307,107 @@
 <section id="work" class="section">
   <div class="container-xl">
     <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-end gap-3 mb-5 reveal">
-      <div><div class="section-kicker">03 — Selected work</div><h2 class="section-title mb-0">Projects that solve real problems.</h2></div>
-      <p class="section-lead mb-0">A selection of Laravel, WordPress, React and API work from different industries.</p>
+      <div>
+        <div class="section-kicker">03 — Selected work</div>
+        <h2 class="section-title mb-0">A closer look at what I build.</h2>
+      </div>
+      <p class="section-lead mb-0">Not just a list of projects. A quick look at the problem, the solution and the technology behind each build.</p>
     </div>
+
     <div class="row g-4">
       <div class="col-md-6 col-lg-4 reveal">
         <article class="project-card">
           <div class="project-image"><img src="assets/images/60shades.webp" alt="60shades Laravel marketplace" loading="lazy" width="800" height="450"></div>
-          <div class="project-body"><div class="project-type">Laravel Marketplace</div><h3>60shades</h3><p>Large-scale B2B marketplace for bakeries and suppliers with secure payments, vendor management and product catalogues.</p><div class="project-tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span></div></div>
+          <div class="project-body">
+            <div class="d-flex justify-content-between align-items-center"><div class="project-type">Laravel Marketplace</div><span class="project-number">01</span></div>
+            <h3>60shades</h3>
+            <p>A B2B marketplace connecting bakeries and suppliers through a product-focused purchasing experience.</p>
+            <div class="case-study">
+              <div class="case-row"><div class="case-label">Challenge</div><p>Support a large product catalogue and the different needs of marketplace users.</p></div>
+              <div class="case-row"><div class="case-label">Build</div><p>Built marketplace functionality, vendor management, product catalogues and secure payment flows.</p></div>
+              <div class="case-row"><div class="case-label">Stack</div><div class="case-tech"><span>Laravel</span><span>Vue.js</span><span>MySQL</span></div></div>
+            </div>
+          </div>
         </article>
       </div>
+
       <div class="col-md-6 col-lg-4 reveal">
         <article class="project-card">
           <div class="project-image"><img src="assets/images/codezeros.jpg" alt="Code Zeroes WordPress agency website" loading="lazy" width="800" height="450"></div>
-          <div class="project-body"><div class="project-type">WordPress Agency Site</div><h3>Code Zeroes</h3><p>Professional software agency website with custom theme work, portfolio presentation and performance optimization.</p><div class="project-tags"><span>WordPress</span><span>PHP</span><span>Custom Theme</span></div></div>
+          <div class="project-body">
+            <div class="d-flex justify-content-between align-items-center"><div class="project-type">WordPress Agency Site</div><span class="project-number">02</span></div>
+            <h3>Code Zeroes</h3>
+            <p>A professional agency website designed to present services, capabilities and portfolio work clearly.</p>
+            <div class="case-study">
+              <div class="case-row"><div class="case-label">Challenge</div><p>Create a credible agency presence that could be tailored beyond a stock WordPress theme.</p></div>
+              <div class="case-row"><div class="case-label">Build</div><p>Developed custom WordPress theme work with a focused portfolio presentation and performance improvements.</p></div>
+              <div class="case-row"><div class="case-label">Stack</div><div class="case-tech"><span>WordPress</span><span>PHP</span><span>Custom Theme</span></div></div>
+            </div>
+          </div>
         </article>
       </div>
+
       <div class="col-md-6 col-lg-4 reveal">
         <article class="project-card">
           <div class="project-image"><div class="project-placeholder"><i class="bi bi-grid-1x2"></i></div></div>
-          <div class="project-body"><div class="project-type">Laravel + React</div><h3>Admin Dashboard</h3><p>Modern admin dashboard backed by a Laravel REST API with data visualization and role-based access control.</p><div class="project-tags"><span>Laravel</span><span>React.js</span><span>REST API</span></div></div>
+          <div class="project-body">
+            <div class="d-flex justify-content-between align-items-center"><div class="project-type">Laravel + React</div><span class="project-number">03</span></div>
+            <h3>Admin Dashboard</h3>
+            <p>A data-driven administration interface designed around a Laravel API and modern frontend.</p>
+            <div class="case-study">
+              <div class="case-row"><div class="case-label">Challenge</div><p>Bring operational data and management controls into one clear interface.</p></div>
+              <div class="case-row"><div class="case-label">Build</div><p>Created a Laravel REST API, React dashboard, data visualisation and role-based access controls.</p></div>
+              <div class="case-row"><div class="case-label">Stack</div><div class="case-tech"><span>Laravel</span><span>React.js</span><span>REST API</span></div></div>
+            </div>
+          </div>
         </article>
       </div>
+
       <div class="col-md-6 col-lg-4 reveal">
         <article class="project-card">
           <div class="project-image"><img src="assets/images/mash3d.webp" alt="Mech 3D Studios Laravel e-commerce platform" loading="lazy" width="800" height="450"></div>
-          <div class="project-body"><div class="project-type">Laravel E-commerce</div><h3>Mech 3D Studios</h3><p>Modern e-commerce platform for 3D products with checkout, inventory management and a full admin panel.</p><div class="project-tags"><span>Laravel</span><span>Vue.js</span><span>E-commerce</span></div></div>
+          <div class="project-body">
+            <div class="d-flex justify-content-between align-items-center"><div class="project-type">Laravel E-commerce</div><span class="project-number">04</span></div>
+            <h3>Mech 3D Studios</h3>
+            <p>An e-commerce platform for 3D products with a customer storefront and operational admin tools.</p>
+            <div class="case-study">
+              <div class="case-row"><div class="case-label">Challenge</div><p>Combine product discovery, purchasing and catalogue management in one system.</p></div>
+              <div class="case-row"><div class="case-label">Build</div><p>Developed the storefront, checkout, inventory management and administration panel.</p></div>
+              <div class="case-row"><div class="case-label">Stack</div><div class="case-tech"><span>Laravel</span><span>Vue.js</span><span>E-commerce</span></div></div>
+            </div>
+          </div>
         </article>
       </div>
+
       <div class="col-md-6 col-lg-4 reveal">
         <article class="project-card">
           <div class="project-image"><img src="assets/images/aldercake.webp" alt="Alder Cake Tool WooCommerce store" loading="lazy" width="800" height="450"></div>
-          <div class="project-body"><div class="project-type">WooCommerce Store</div><h3>Alder Cake Tool</h3><p>Online store for baking and cake decoration tools with custom product pages, upsells and streamlined checkout.</p><div class="project-tags"><span>WordPress</span><span>WooCommerce</span><span>PHP</span></div></div>
+          <div class="project-body">
+            <div class="d-flex justify-content-between align-items-center"><div class="project-type">WooCommerce Store</div><span class="project-number">05</span></div>
+            <h3>Alder Cake Tool</h3>
+            <p>An online store focused on baking and cake-decorating tools with a streamlined buying journey.</p>
+            <div class="case-study">
+              <div class="case-row"><div class="case-label">Challenge</div><p>Present a specialist product catalogue while keeping product selection and checkout straightforward.</p></div>
+              <div class="case-row"><div class="case-label">Build</div><p>Customised product pages, upsell flows and the WooCommerce checkout experience.</p></div>
+              <div class="case-row"><div class="case-label">Stack</div><div class="case-tech"><span>WordPress</span><span>WooCommerce</span><span>PHP</span></div></div>
+            </div>
+          </div>
         </article>
       </div>
+
       <div class="col-md-6 col-lg-4 reveal">
         <article class="project-card">
           <div class="project-image"><img src="assets/images/plantodubai.webp" alt="Plan to Dubai Laravel API platform" loading="lazy" width="800" height="450"></div>
-          <div class="project-body"><div class="project-type">Laravel API Platform</div><h3>Plan to Dubai</h3><p>Tourism data management platform powered by a Laravel REST API and admin panel for multiple frontend integrations.</p><div class="project-tags"><span>Laravel</span><span>API</span><span>MySQL</span></div></div>
+          <div class="project-body">
+            <div class="d-flex justify-content-between align-items-center"><div class="project-type">Laravel API Platform</div><span class="project-number">06</span></div>
+            <h3>Plan to Dubai</h3>
+            <p>A tourism data platform designed to support structured travel information and multiple frontend integrations.</p>
+            <div class="case-study">
+              <div class="case-row"><div class="case-label">Challenge</div><p>Manage tourism data centrally while keeping it available to different frontend experiences.</p></div>
+              <div class="case-row"><div class="case-label">Build</div><p>Built a Laravel REST API and administration layer for managing and serving tourism data.</p></div>
+              <div class="case-row"><div class="case-label">Stack</div><div class="case-tech"><span>Laravel</span><span>REST API</span><span>MySQL</span></div></div>
+            </div>
+          </div>
         </article>
       </div>
     </div>
