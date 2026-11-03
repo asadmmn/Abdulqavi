@@ -128,6 +128,10 @@
     .case-tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
     .case-tech span{font-size:.68rem;font-weight:700;padding:5px 8px;border:1px solid var(--line);border-radius:999px;color:#666}
     @media(max-width:575.98px){.case-row{grid-template-columns:1fr;gap:3px}}
+
+    .blog-preview{display:flex;flex-direction:column;box-shadow:0 5px 18px rgba(17,17,17,.025)}
+    .blog-preview p{font-size:.92rem;line-height:1.7}
+    .blog-preview .project-link{margin-top:auto}
     .service-card{border-top:1px solid #333;padding:25px 0;height:100%}
     .service-card .icon{width:42px;height:42px;border-radius:12px;background:#252525;display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:19px}
     .service-card h3{font-size:1.22rem}
@@ -305,6 +309,7 @@
         <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
         <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
         <li class="nav-item ms-lg-2"><a class="btn btn-main btn-sm px-3" href="#contact">Let's talk <i class="bi bi-arrow-up-right ms-1"></i></a></li>
       </ul>
     </div>
@@ -554,6 +559,20 @@
   </div>
 </section>
 
+<section id="blog" class="section section-soft">
+  <div class="container-xl">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-5">
+      <div><div class="section-kicker">Notes from the workbench</div><h2 class="section-title mb-3">Practical ideas for better websites.</h2><p class="section-lead mb-0">Guides on Laravel, WordPress and modern web development—focused on real problems and useful solutions.</p></div>
+      <a class="btn btn-lightline flex-shrink-0" href="/blog/">Explore all articles <i class="bi bi-arrow-up-right ms-1"></i></a>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4"><article class="approach-card blog-preview h-100"><div class="project-type mb-3">Laravel · API Development</div><div class="experience-date mb-2">November 3, 2026 · 8 min read</div><h3 class="h4 fw-bold mb-3">Building a Secure REST API with Laravel: A Practical Checklist</h3><p class="text-secondary">A practical walkthrough of authentication, validation, authorization, rate limiting and consistent API responses.</p><a class="project-link mt-auto" href="/blog/secure-laravel-rest-api/">Read article <i class="bi bi-arrow-up-right"></i></a></article></div>
+      <div class="col-md-6 col-lg-4"><article class="approach-card blog-preview h-100"><div class="project-type mb-3">WordPress · Performance</div><div class="experience-date mb-2">November 3, 2026 · 7 min read</div><h3 class="h4 fw-bold mb-3">How to Speed Up a WordPress Website: A Practical Guide</h3><p class="text-secondary">Find the real bottlenecks first, then improve images, caching, scripts, hosting and Core Web Vitals.</p><a class="project-link mt-auto" href="/blog/speed-up-wordpress-website/">Read article <i class="bi bi-arrow-up-right"></i></a></article></div>
+      <div class="col-md-6 col-lg-4"><article class="approach-card blog-preview h-100"><div class="project-type mb-3">Laravel · Architecture</div><div class="experience-date mb-2">November 3, 2026 · 6 min read</div><h3 class="h4 fw-bold mb-3">Laravel vs WordPress: Which Should You Choose for Your Project?</h3><p class="text-secondary">A decision guide based on content needs, custom workflows, integrations, ownership and long-term maintenance.</p><a class="project-link mt-auto" href="/blog/laravel-vs-wordpress/">Read article <i class="bi bi-arrow-up-right"></i></a></article></div>
+    </div>
+  </div>
+</section>
+
 <section id="contact" class="section">
   <div class="container-xl">
     <div class="contact-wrap">
@@ -592,6 +611,7 @@
 <footer class="footer">
   <div class="container-xl d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
     <div><strong class="text-dark">Abdul Qavi</strong> · Full-Stack Developer</div>
+    <div class="d-flex gap-3"><a href="/blog/">Blog</a><a href="/feed.xml">RSS feed</a></div>
     <div>© <span id="year"></span> Abdul Qavi. 2026.</div>
   </div>
 </footer>
