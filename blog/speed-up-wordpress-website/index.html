@@ -26,6 +26,56 @@
 @media(max-width:800px){.blog-hero:after,.blog-hero:before{opacity:.45;right:5%;top:12%}.article-layout{grid-template-columns:1fr;gap:25px;padding-top:35px}.article-aside{order:0}.toc{position:static;border:1px solid var(--line);border-radius:12px;padding:13px 16px}.toc-label{margin-bottom:4px}.toc a{display:inline-block;margin:4px 12px 0 0}.article-content{order:1}.article-card:first-child{min-height:340px}}
 @media(max-width:620px){.site-header{gap:8px;padding:11px 14px}.nav-links{gap:10px}.nav-links a[href='/#about']{display:none}.nav-links{gap:14px;font-size:12px}.nav-cta{padding:8px 12px;font-size:12px}.brand{font-size:13px}.brand-mark{width:30px;height:30px}.blog-hero h1{font-size:clamp(55px,15vw,90px)}.blog-hero:after,.blog-hero:before{display:none}.article-grid{grid-template-columns:1fr}.article-card:first-child{grid-column:auto;min-height:350px}.article-card{min-height:300px}.blog-cta{align-items:flex-start;flex-direction:column}.site-footer{align-items:flex-start;flex-direction:column}.site-footer nav{flex-wrap:wrap}.article-hero h1{font-size:clamp(42px,12vw,68px)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Mobile refinement pass */
+@media (max-width: 620px) {
+  html { scroll-padding-top: 72px; }
+  body { overflow-x: clip; }
+  .site-header { min-height: 58px; display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 14px; }
+  .brand { flex: 0 0 auto; white-space: nowrap; }
+  .brand-mark { flex: 0 0 30px; }
+  .nav-links { min-width: 0; flex: 1 1 auto; justify-content: flex-end; gap: clamp(8px, 2.8vw, 14px); white-space: nowrap; font-size: clamp(11px, 2.9vw, 12px); }
+  .nav-cta { flex: 0 0 auto; white-space: nowrap; padding: 8px 10px; min-height: 38px; }
+  .blog-hero, .article-hero { padding-top: 112px; padding-bottom: 58px; }
+  .blog-hero h1 { max-width: 100%; font-size: clamp(44px, 13vw, 70px); line-height: .94; overflow-wrap: anywhere; }
+  .article-hero h1 { max-width: 100%; font-size: clamp(36px, 10.5vw, 58px); line-height: .98; overflow-wrap: anywhere; }
+  .blog-hero p, .article-hero p { max-width: 100%; font-size: 15px; }
+  .hero-meta, .article-meta { flex-wrap: wrap; gap: 8px 14px; }
+  .articles-section, .article-layout { padding-left: 18px; padding-right: 18px; }
+  .article-grid { grid-template-columns: minmax(0, 1fr); }
+  .article-card, .article-card:first-child { min-width: 0; min-height: 0; grid-column: auto; }
+  .article-card:first-child { min-height: 300px; }
+  .article-card__content { padding: 20px; }
+  .article-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .article-aside { min-width: 0; }
+  .toc { position: static; max-width: 100%; }
+  .article-content { min-width: 0; overflow-wrap: anywhere; }
+  .article-content img, .article-content video, .article-content iframe { max-width: 100%; height: auto; }
+  .article-content pre, .article-content .code-block { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .article-content table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .article-content h2 { font-size: clamp(26px, 7vw, 36px); }
+  .article-content h3 { font-size: clamp(21px, 5.8vw, 28px); }
+  .article-content p, .article-content li { overflow-wrap: anywhere; }
+  .blog-cta { gap: 18px; padding: 26px 20px; }
+  .site-footer { gap: 20px; }
+  .site-footer nav { gap: 10px 16px; }
+  .site-footer a, .nav-links a, .nav-cta { min-height: 38px; display: inline-flex; align-items: center; }
+}
+@media (max-width: 390px) {
+  .site-header { gap: 6px; padding-inline: 11px; }
+  .nav-links a[href="/"] { display: none; }
+  .nav-links { gap: 9px; }
+  .nav-cta { padding-inline: 8px; font-size: 11px; }
+  .brand { font-size: 12px; }
+  .brand-mark { width: 27px; height: 27px; }
+  .blog-hero h1 { font-size: clamp(42px, 12vw, 52px); }
+  .article-hero h1 { font-size: clamp(34px, 9.8vw, 44px); }
+  .article-card:first-child { min-height: 270px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .article-card, .article-card img, .blog-cta, .nav-cta { transition-duration: .01ms !important; }
+}
+
 </style><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Speed Up a WordPress Website: A Practical Guide","description":"A step-by-step guide to diagnosing and improving WordPress speed with image optimization, caching, lean plugins, better hosting and Core Web Vitals.","datePublished":"2026-11-03","dateModified":"2026-11-03","author":{"@type":"Person","name":"Abdul Qavi","url":"https://abdulqavi.site/"},"publisher":{"@type":"Person","name":"Abdul Qavi","url":"https://abdulqavi.site/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://abdulqavi.site/blog/speed-up-wordpress-website/"},"image":"https://abdulqavi.site/assets/images/profile.png"}</script>
 </head>
 <body><a class="skip-link" href="#main">Skip to content</a><div class="progress" id="reading-progress" aria-hidden="true"></div><header class="site-header"><a class="brand" href="/"><span class="brand-mark">AQ</span>Abdul Qavi</a><nav class="nav-links" aria-label="Main navigation"><a href="/">Portfolio</a><a href="/blog/" aria-current="page">Journal</a><a href="/#about">About</a></nav><a class="nav-cta" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a></header><main id="main"><section class="article-hero"><div class="container article-hero__inner"><div class="crumbs"><a href="/">Home</a><span>/</span><a href="/blog/">Journal</a><span>/</span><span>WordPress · Performance</span></div><div class="eyebrow">WordPress · Performance</div><h1>How to Speed Up a WordPress Website: A Practical Guide</h1><div class="article-meta"><strong>By Abdul Qavi</strong> · 2026-11-03 · 7 min read</div><p class="intro">A slow WordPress website can frustrate visitors, reduce conversions and make routine editing feel painful. The fastest route to improvement is not installing every optimization plugin. It is measuring the bottleneck, fixing the biggest causes and testing again.</p><div class="reading-note">A practical guide · Comfortable on mobile and desktop</div></div></section><div class="article-layout"><aside class="article-aside"><nav class="toc" aria-label="On this page"><span class="toc-label">On this page</span><div id="toc-links"><span style="color:var(--muted);font-size:12px">Article sections</span></div></nav></aside><article class="article-content" id="article-content"><h2>1. Measure before changing anything</h2><p>Run a representative page through PageSpeed Insights and Lighthouse, and test more than the homepage. Check a key landing page, product page or blog post on mobile and desktop. Record the results before making changes so you can tell whether an optimization actually helped.</p><p>Pay attention to Core Web Vitals: Largest Contentful Paint (LCP), Interaction to Next Paint (INP) and Cumulative Layout Shift (CLS). These help identify slow main content, delayed interaction and unexpected layout movement.</p>
