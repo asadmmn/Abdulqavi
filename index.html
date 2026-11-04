@@ -186,6 +186,89 @@ input,select,textarea{width:100%;font:inherit;color:#fff;background:var(--n10);b
  .about__body{grid-template-columns:1fr;gap:36px}.approach__list li{width:100%}.offer__item{grid-template-columns:1fr auto;gap:8px}.offer__line{grid-column:1/-1}
  .site-footer{grid-template-columns:1fr}.site-footer__top{justify-self:start}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.line__word>span{transform:none}.line .cushion{scale:1}.reveal{opacity:1;transform:none}}
+
+
+/* Mobile refinement pass — preserve the desktop composition */
+@media (max-width: 860px) {
+  html { scroll-padding-top: 76px; }
+  body { overflow-x: clip; }
+  .site-header { padding-top: 12px; padding-bottom: 12px; }
+  .site-header__menu { min-height: 44px; padding-inline: 20px; }
+  .hero { min-height: 100svh; min-height: max(100svh, 650px); padding-top: 104px; gap: 32px; }
+  .hero__intro { max-width: 100%; padding-right: min(30vw, 150px); }
+  .hero__role { font-size: clamp(28px, 5.8vw, 46px); }
+  .hero__feature { top: 112px; bottom: auto; right: var(--gut); width: clamp(88px, 22vw, 142px); border-radius: 24%; }
+  .hero__actions { gap: 14px 18px; }
+  .hero__proof { max-width: 38rem; }
+  .hero__name { margin-top: auto; }
+  .hero__name h1 { max-width: 100%; }
+  .badge { width: clamp(44px, 9vw, 76px); }
+  .work__stage { height: 70svh; }
+  .work__list { margin-top: -70svh; padding-top: 34svh; padding-bottom: 16svh; gap: 13svh; }
+  .work-card, .work-card:nth-child(even) { width: 100%; align-self: stretch; translate: none; }
+  .work-card__media { aspect-ratio: 16 / 10; border-radius: 12px; }
+  .work-card__caption { display: block; padding: 14px 2px 0; }
+  .work-card__caption h3 { font-size: clamp(22px, 5vw, 30px); line-height: 1.1; }
+  .work-card__caption p { margin-top: 7px; max-width: 62ch; font-size: 15px; line-height: 1.55; color: var(--mute); }
+  .work-card__caption .work-card__tags { font-size: 12px; letter-spacing: .02em; }
+  .work__caption { display: none; }
+  .work-card:focus-visible { outline: 3px solid #ff9a62; outline-offset: 5px; }
+  .reviews__list li, .reviews__list li:nth-child(odd) { width: 100%; }
+  .review__poster { width: min(55%, 260px); }
+  .about__body { gap: 26px; }
+  .offer__item { padding-block: 18px; }
+  .site-footer { gap: 26px; }
+  .modal { padding: 16px; }
+  .modal__inner { width: min(100%, 680px); max-height: calc(100svh - 32px); overflow-y: auto; }
+  .modal .mimg { max-height: 34svh; }
+}
+@media (max-width: 600px) {
+  :root { --gut: 18px; }
+  body { font-size: 16px; }
+  section { padding-top: 84px; padding-bottom: 84px; }
+  .hero { min-height: 100svh; min-height: max(100svh, 620px); padding-top: 96px; }
+  .hero__intro { padding-right: 0; }
+  .hero__role { max-width: 12ch; font-size: clamp(28px, 8vw, 42px); }
+  .hero__feature { top: 106px; width: clamp(76px, 21vw, 108px); }
+  .hero__actions { max-width: 100%; gap: 12px 16px; }
+  .hero__proof { font-size: 13px; }
+  .hero__name h1 { letter-spacing: -.065em; }
+  .badge { width: 42px; }
+  .b1 { left: 1%; bottom: 105%; }
+  .b2 { left: 42%; bottom: 106%; }
+  .b3 { right: 2%; bottom: 105%; }
+  .work__stage { height: 58svh; }
+  .work__list { margin-top: -58svh; padding-top: 28svh; padding-bottom: 12svh; gap: 11svh; }
+  .work-card__media { aspect-ratio: 4 / 3; }
+  .work-card__caption p { font-size: 14px; }
+  .statement { font-size: clamp(25px, 7vw, 38px); }
+  .review__poster { width: min(72%, 250px); }
+  .offer__item { grid-template-columns: 1fr; }
+  .offer__line { grid-column: auto; }
+  .site-footer__legal { flex-wrap: wrap; gap: 10px 18px; }
+  .menu { padding-top: max(14px, env(safe-area-inset-top)); padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+  .menu__links a { font-size: clamp(42px, 12vw, 64px); }
+  .modal { padding: 10px; align-items: end; }
+  .modal__inner { width: 100%; max-height: calc(100svh - 20px); border-radius: 16px; }
+  .modal .mimg { max-height: 28svh; }
+  .button, .button.plain, .menu__close { min-height: 44px; }
+}
+@media (max-width: 380px) {
+  :root { --gut: 15px; }
+  .hero { min-height: max(100svh, 600px); }
+  .hero__role { max-width: 10ch; font-size: 28px; }
+  .hero__feature { width: 76px; top: 102px; }
+  .hero__actions { gap: 12px; }
+  .hero__proof { max-width: 30ch; }
+  .work__stage .line { letter-spacing: -.07em; }
+  .work-card__media { border-radius: 9px; }
+  .review__poster { width: 82%; }
+}
+@media (hover: none) and (pointer: coarse) {
+  .work-card:hover img, .button:hover { transform: none; }
+  .t3d { transition: none; }
+}
+
 </style>
 <!-- Google Analytics: consent is denied until the visitor opts in. -->
 <script>
