@@ -26,6 +26,56 @@
 @media(max-width:800px){.blog-hero:after,.blog-hero:before{opacity:.45;right:5%;top:12%}.article-layout{grid-template-columns:1fr;gap:25px;padding-top:35px}.article-aside{order:0}.toc{position:static;border:1px solid var(--line);border-radius:12px;padding:13px 16px}.toc-label{margin-bottom:4px}.toc a{display:inline-block;margin:4px 12px 0 0}.article-content{order:1}.article-card:first-child{min-height:340px}}
 @media(max-width:620px){.site-header{gap:8px;padding:11px 14px}.nav-links{gap:10px}.nav-links a[href='/#about']{display:none}.nav-links{gap:14px;font-size:12px}.nav-cta{padding:8px 12px;font-size:12px}.brand{font-size:13px}.brand-mark{width:30px;height:30px}.blog-hero h1{font-size:clamp(55px,15vw,90px)}.blog-hero:after,.blog-hero:before{display:none}.article-grid{grid-template-columns:1fr}.article-card:first-child{grid-column:auto;min-height:350px}.article-card{min-height:300px}.blog-cta{align-items:flex-start;flex-direction:column}.site-footer{align-items:flex-start;flex-direction:column}.site-footer nav{flex-wrap:wrap}.article-hero h1{font-size:clamp(42px,12vw,68px)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Mobile refinement pass */
+@media (max-width: 620px) {
+  html { scroll-padding-top: 72px; }
+  body { overflow-x: clip; }
+  .site-header { min-height: 58px; display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 14px; }
+  .brand { flex: 0 0 auto; white-space: nowrap; }
+  .brand-mark { flex: 0 0 30px; }
+  .nav-links { min-width: 0; flex: 1 1 auto; justify-content: flex-end; gap: clamp(8px, 2.8vw, 14px); white-space: nowrap; font-size: clamp(11px, 2.9vw, 12px); }
+  .nav-cta { flex: 0 0 auto; white-space: nowrap; padding: 8px 10px; min-height: 38px; }
+  .blog-hero, .article-hero { padding-top: 112px; padding-bottom: 58px; }
+  .blog-hero h1 { max-width: 100%; font-size: clamp(44px, 13vw, 70px); line-height: .94; overflow-wrap: anywhere; }
+  .article-hero h1 { max-width: 100%; font-size: clamp(36px, 10.5vw, 58px); line-height: .98; overflow-wrap: anywhere; }
+  .blog-hero p, .article-hero p { max-width: 100%; font-size: 15px; }
+  .hero-meta, .article-meta { flex-wrap: wrap; gap: 8px 14px; }
+  .articles-section, .article-layout { padding-left: 18px; padding-right: 18px; }
+  .article-grid { grid-template-columns: minmax(0, 1fr); }
+  .article-card, .article-card:first-child { min-width: 0; min-height: 0; grid-column: auto; }
+  .article-card:first-child { min-height: 300px; }
+  .article-card__content { padding: 20px; }
+  .article-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .article-aside { min-width: 0; }
+  .toc { position: static; max-width: 100%; }
+  .article-content { min-width: 0; overflow-wrap: anywhere; }
+  .article-content img, .article-content video, .article-content iframe { max-width: 100%; height: auto; }
+  .article-content pre, .article-content .code-block { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .article-content table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .article-content h2 { font-size: clamp(26px, 7vw, 36px); }
+  .article-content h3 { font-size: clamp(21px, 5.8vw, 28px); }
+  .article-content p, .article-content li { overflow-wrap: anywhere; }
+  .blog-cta { gap: 18px; padding: 26px 20px; }
+  .site-footer { gap: 20px; }
+  .site-footer nav { gap: 10px 16px; }
+  .site-footer a, .nav-links a, .nav-cta { min-height: 38px; display: inline-flex; align-items: center; }
+}
+@media (max-width: 390px) {
+  .site-header { gap: 6px; padding-inline: 11px; }
+  .nav-links a[href="/"] { display: none; }
+  .nav-links { gap: 9px; }
+  .nav-cta { padding-inline: 8px; font-size: 11px; }
+  .brand { font-size: 12px; }
+  .brand-mark { width: 27px; height: 27px; }
+  .blog-hero h1 { font-size: clamp(42px, 12vw, 52px); }
+  .article-hero h1 { font-size: clamp(34px, 9.8vw, 44px); }
+  .article-card:first-child { min-height: 270px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .article-card, .article-card img, .blog-cta, .nav-cta { transition-duration: .01ms !important; }
+}
+
 </style><script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Abdul Qavi — Web Development Notes","url":"https://abdulqavi.site/blog/","description":"Practical guides on Laravel, WordPress and web development."}</script>
 </head>
 <body><a class="skip-link" href="#main">Skip to content</a><div class="progress" id="reading-progress" aria-hidden="true"></div><header class="site-header"><a class="brand" href="/"><span class="brand-mark">AQ</span>Abdul Qavi</a><nav class="nav-links" aria-label="Main navigation"><a href="/">Portfolio</a><a href="/blog/" aria-current="page">Journal</a><a href="/#about">About</a></nav><a class="nav-cta" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a></header><main id="main"><section class="blog-hero"><div class="container blog-hero__inner"><div class="eyebrow">The journal · Ideas in practice</div><h1>Notes for the <em>web.</em></h1><p>Practical thinking on Laravel, WordPress, APIs and building digital products. Clear guides from the work of making things that last.</p><div class="hero-meta"><span>By Abdul Qavi</span><span>Laravel · WordPress · Engineering</span><a href="/feed.xml">Subscribe via RSS ↗</a></div></div></section><section class="articles-section container" aria-labelledby="articles-title"><div class="section-top"><h2 id="articles-title">Selected reading</h2><p>3 practical guides · Updated regularly</p></div><div class="article-grid"><article class="article-card"><div class="card-top"><span class="card-category">Laravel · API Development</span><span class="card-number">01 / 03</span></div><span class="card-mark" aria-hidden="true">API</span><h2><a href="/blog/secure-laravel-rest-api/">Building a Secure REST API with Laravel: A Practical Checklist</a></h2><p>Learn how to build a safer Laravel REST API with authentication, validation, authorization, rate limiting, consistent responses and production checks.</p><div class="card-bottom"><span>2026-11-03 · 8 min read</span><a class="card-read" href="/blog/secure-laravel-rest-api/">Read article <span aria-hidden="true">↗</span></a></div></article><article class="article-card"><div class="card-top"><span class="card-category">WordPress · Performance</span><span class="card-number">02 / 03</span></div><span class="card-mark" aria-hidden="true">WP</span><h2><a href="/blog/speed-up-wordpress-website/">How to Speed Up a WordPress Website: A Practical Guide</a></h2><p>A step-by-step guide to diagnosing and improving WordPress speed with image optimization, caching, lean plugins, better hosting and Core Web Vitals.</p><div class="card-bottom"><span>2026-11-03 · 7 min read</span><a class="card-read" href="/blog/speed-up-wordpress-website/">Read article <span aria-hidden="true">↗</span></a></div></article><article class="article-card"><div class="card-top"><span class="card-category">Laravel · WordPress · Planning</span><span class="card-number">03 / 03</span></div><span class="card-mark" aria-hidden="true">VS</span><h2><a href="/blog/laravel-vs-wordpress/">Laravel vs WordPress: Which Should You Choose for Your Project?</a></h2><p>Compare Laravel and WordPress for business websites, content publishing, custom portals and web applications. Choose a stack based on the product you need.</p><div class="card-bottom"><span>2026-11-03 · 6 min read</span><a class="card-read" href="/blog/laravel-vs-wordpress/">Read article <span aria-hidden="true">↗</span></a></div></article></div><div class="blog-cta"><div><h2>Have something in mind?</h2><p>Let’s turn your idea or existing product into something useful.</p></div><a href="/#contact">Start a conversation ↗</a></div></section></main><footer class="site-footer"><p>© 2026 Abdul Qavi · Karachi, Pakistan</p><nav aria-label="Footer navigation"><a href="/">Portfolio</a><a href="/blog/">All articles</a><a href="/feed.xml">RSS feed</a><a href="/#contact">Contact</a></nav></footer><script>document.querySelectorAll('a[href^="/blog/"]').forEach(a=>a.addEventListener('click',()=>{}));</script></body></html></html>
