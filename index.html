@@ -269,6 +269,21 @@ input,select,textarea{width:100%;font:inherit;color:#fff;background:var(--n10);b
   .t3d { transition: none; }
 }
 
+
+/* Correct selectors for the project dialog on touch screens */
+@media (max-width: 860px) {
+  #modal { padding: 16px; }
+  #modal .box { width: min(100%, 680px); max-height: calc(100svh - 32px); overflow-y: auto; }
+  #modal .mimg { max-height: 34svh; }
+}
+@media (max-width: 600px) {
+  #modal { padding: 10px; align-items: flex-end; }
+  #modal .box { width: 100%; max-height: calc(100svh - 20px); padding: 22px 18px; border-radius: 16px; }
+  #modal .mimg { max-height: 28svh; }
+  #modal h3 { font-size: clamp(26px, 7vw, 34px); padding-right: 34px; }
+  .x { width: 44px; height: 44px; }
+}
+
 </style>
 <!-- Google Analytics: consent is denied until the visitor opts in. -->
 <script>
