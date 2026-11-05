@@ -1,0 +1,6 @@
+# Canonical host and HTTPS redirects for Apache-based hosting.
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.abdulqavi\.site$ [NC]
+RewriteRule ^ https://abdulqavi.site%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://abdulqavi.site%{REQUEST_URI} [R=301,L]
