@@ -1,5 +1,8 @@
 # Canonical host and HTTPS redirects for Apache-based hosting.
 RewriteEngine On
+
+# Redirect the off-topic seasonal decor URL to the relevant e-commerce development guide.
+RewriteRule ^blog/whimsical-christmas-decor-ideas/?$ /blog/christmas-decor-ecommerce-website/ [R=301,L]
 RewriteCond %{HTTP_HOST} ^www\.abdulqavi\.site$ [NC]
 RewriteRule ^ https://abdulqavi.site%{REQUEST_URI} [R=301,L]
 RewriteCond %{HTTPS} !=on
