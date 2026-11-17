@@ -12,10 +12,10 @@
 <body>
 <main class="card">
 <h1>📧 Leave application</h1>
-<p>Tap the button below. It will ask Android to open the Gmail app with the recipient, subject and full message already filled in.</p>
+<p>Tap below to open this prepared email in the email app selected on your phone (choose Gmail if Android asks).</p>
 <div class="details"><strong>To:</strong> ranatanveeralikz@gmail.com<br><strong>Subject:</strong> Leave Request for 21st and 23rd November 2026</div>
-<a class="btn" id="open" href="#">Open in Gmail app</a>
-<p class="small">If Gmail does not open, your phone may not allow app links from WhatsApp. The fallback opens your default email app. Attach the wedding invitation card before sending.</p>
+<a class="btn" id="open" href="#">Compose email</a>
+<p class="small">Gmail must be selected as your email app. Attach the wedding invitation card before sending.</p>
 </main>
 <script>
 const to = "ranatanveeralikz@gmail.com";
@@ -40,10 +40,8 @@ Thank you for your understanding and consideration.
 
 Best regards,
 Haq Nawaz`;
-const enc = s => encodeURIComponent(s);
-const mailto = 'mailto:' + to + '?subject=' + enc(subject) + '&body=' + enc(body);
-const gmailIntent = 'intent://co?to=' + enc(to) + '&subject=' + enc(subject) + '&body=' + enc(body) + '#Intent;scheme=googlegmail;package=com.google.android.gm;S.browser_fallback_url=' + enc(mailto) + ';end';
-document.getElementById('open').href = gmailIntent;
+const enc = value => encodeURIComponent(value);
+document.getElementById("open").href = "mailto:" + to + "?subject=" + enc(subject) + "&body=" + enc(body);
 </script>
 </body>
 </html>
