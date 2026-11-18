@@ -135,6 +135,26 @@ document.querySelectorAll('#mainNav a[href^="#"]').forEach(link=>{
 });
 const year=document.querySelector('[data-year]');
 if(year)year.textContent=new Date().getFullYear();
+
+const cookiePanel=document.querySelector('#cookie-consent');
+let savedConsent=null;
+try{savedConsent=localStorage.getItem('cc');}catch(error){}
+if(cookiePanel){
+  cookiePanel.hidden=!!savedConsent;
+  if(savedConsent==='yes'&&window.gtag){
+    window.gtag('consent','update',{analytics_storage:'granted'});
+  }
+  document.querySelectorAll('[data-consent]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const choice=button.dataset.consent;
+      try{localStorage.setItem('cc',choice);}catch(error){}
+      if(window.gtag)window.gtag('consent','update',{analytics_storage:choice==='yes'?'granted':'denied'});
+      cookiePanel.hidden=true;
+    });
+  });
+  const settings=document.querySelector('#cookie-settings');
+  if(settings)settings.addEventListener('click',()=>{cookiePanel.hidden=false;});
+}
 const form=document.querySelector('#project-form');
 if(form)form.addEventListener('submit',event=>{
   event.preventDefault();
