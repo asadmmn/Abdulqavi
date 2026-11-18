@@ -4,7 +4,7 @@ const canvas = document.querySelector('#hero-canvas');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(pointer: fine)').matches;
 
-if (canvas && !reducedMotion) {
+try {\nif (canvas && !reducedMotion) {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
   camera.position.set(0, 0, 8.8);
